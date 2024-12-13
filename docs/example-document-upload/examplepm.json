@@ -1,0 +1,227 @@
+{
+    "info": {
+        "_postman_id": "bc3691ba-42ee-4e4a-a0b3-b18ac295c56d",
+        "name": "example document flow new document with bestandsdelen",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "30715320"
+    },
+    "item": [
+        {
+            "name": "voorbeelddocument",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [""],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                }
+            ],
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://documenten.preprod-rx-services.nl/api/v1/enkelvoudiginformatieobjecten/a1e69580-3a10-4ff3-93da-251dae96b5ce",
+                    "protocol": "https",
+                    "host": ["documenten", "preprod-rx-services", "nl"],
+                    "path": ["api", "v1", "enkelvoudiginformatieobjecten", "a1e69580-3a10-4ff3-93da-251dae96b5ce"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "step 1 post document without content",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.environment.set(\"document_url\", pm.response.json().url);\r",
+                            "pm.environment.set(\"bestandsdelen_url\", pm.response.json().bestandsdelen[0].url);\r",
+                            "pm.environment.set(\"lock\", pm.response.json().lock);"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"identificatie\": \"\",\r\n    \"bronorganisatie\": \"361249160\",\r\n    \"creatiedatum\": \"2024-08-27\",\r\n    \"titel\": \"test johannes\",\r\n    \"vertrouwelijkheidaanduiding\": \"openbaar\",\r\n    \"auteur\": \"Roxit\",\r\n    \"status\": \"\",\r\n    \"formaat\": \"application/pdf\",\r\n    \"taal\": \"nld\",\r\n    \"bestandsnaam\": \"iets.pdf\",\r\n    \"inhoud\":null,\r\n    \"bestandsomvang\": 29607,\r\n    \"link\": \"\",\r\n    \"beschrijving\": \"\",\r\n    \"ontvangstdatum\": null,\r\n    \"verzenddatum\": null,\r\n    \"indicatieGebruiksrecht\": false,\r\n    \"ondertekening\": null,\r\n    \"integriteit\": null,\r\n    \"informatieobjecttype\": \"https://catalogi.preprod-rx-services.nl/api/v1/informatieobjecttypen/ba39dada-a497-4066-92d0-8aac46ce3d64\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://documenten.preprod-rx-services.nl/api/v1/enkelvoudiginformatieobjecten",
+                    "protocol": "https",
+                    "host": ["documenten", "preprod-rx-services", "nl"],
+                    "path": ["api", "v1", "enkelvoudiginformatieobjecten"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Step 2 put bestandsdelen",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": ["pm.test(\"Step 5\", function () {\r", "    pm.response.to.have.status(200);\r", "});"],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "protocolProfileBehavior": {
+                "disabledSystemHeaders": {}
+            },
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "API-version",
+                        "value": "1.1.0"
+                    }
+                ],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "lock",
+                            "value": "{{lock}}",
+                            "type": "text"
+                        },
+                        {
+                            "key": "inhoud",
+                            "type": "file",
+                            "src": "test 4.pdf"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "{{bestandsdelen_url}}",
+                    "host": ["{{bestandsdelen_url}}"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Step 3 unlock",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": ["pm.test(\"Step 6\", function () {\r", "    pm.response.to.have.status(204);\r", "});"],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "API-version",
+                        "value": "1.1.0"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"lock\": \"{{lock}}\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{document_url}}/unlock",
+                    "host": ["{{document_url}}"],
+                    "path": ["unlock"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "step 4 relate to case",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": ["pm.test(\"Step 2\", function () {\r", "    pm.response.to.have.status(201);\r", "});"],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Accept-Crs",
+                        "value": "EPSG:4326",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Crs",
+                        "value": "EPSG:4326",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"informatieobject\": \"{{document_url}}\",\r\n    \"zaak\": \"https://zaken.preprod-rx-services.nl/api/v1/zaken/7a89ea95-a167-415f-80d8-6b9bb0c61da7\",\r\n    \"titel\": \"\",\r\n    \"beschrijving\": \"\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://zaken.preprod-rx-services.nl/api/v1/zaakinformatieobjecten",
+                    "protocol": "https",
+                    "host": ["zaken", "preprod-rx-services", "nl"],
+                    "path": ["api", "v1", "zaakinformatieobjecten"]
+                }
+            },
+            "response": []
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "token",
+                "value": "<hier het JWT token>",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [""]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [""]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "document_url",
+            "value": ""
+        }
+    ]
+}

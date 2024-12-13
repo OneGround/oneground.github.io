@@ -1,0 +1,15 @@
+.gitattributes
+.gitignore
+.prettierignore
+package-lock.json
+
+.vscode
+node_modules
+dist
+bin
+obj
+
+*.min.js
+.cache
+.yarn
+*.hbs

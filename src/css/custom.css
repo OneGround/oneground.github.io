@@ -1,0 +1,15 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+:root {
+    --ifm-color-primary: #582754;
+    --ifm-color-primary-dark: #4f234c;
+    --ifm-color-primary-darker: #4b2147;
+    --ifm-color-primary-darkest: #3e1b3b;
+    --ifm-color-primary-light: #612b5c;
+    --ifm-color-primary-lighter: #652d61;
+    --ifm-color-primary-lightest: #72336d;
+}
