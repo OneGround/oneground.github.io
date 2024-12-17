@@ -201,7 +201,7 @@ const config: Config = {
                         from: [
                             "/About/exampledocumentupload.html",
                             "/About/exampledocumentupload",
-                            "/docs/example-document-upload/examplepm.json"
+                            "/About/example-document-upload/examplepm.json"
                         ],
                         to: "/docs/example-document-upload"
                     },
