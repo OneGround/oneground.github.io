@@ -198,7 +198,11 @@ const config: Config = {
                         to: "/docs/version-header"
                     },
                     {
-                        from: ["/About/exampledocumentupload.html", "/About/exampledocumentupload", "/docs/example-document-upload/examplepm.json"],
+                        from: [
+                            "/About/exampledocumentupload.html",
+                            "/About/exampledocumentupload",
+                            "/docs/example-document-upload/examplepm.json"
+                        ],
                         to: "/docs/example-document-upload"
                     },
                     {
