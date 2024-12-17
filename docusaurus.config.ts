@@ -8,7 +8,7 @@ const config: Config = {
     title: "OneGround",
     tagline: "ZGW registrations and Api's",
     favicon: "img/favicon.png",
-    url: "https://oneground.github.io",
+    url: "https://dev.oneground.nl",
     baseUrl: "/",
     organizationName: "OneGround",
     projectName: "DevPortal",
