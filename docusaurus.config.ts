@@ -167,6 +167,50 @@ const config: Config = {
                     type: "all"
                 }
             }
+        ],
+        [
+            "@docusaurus/plugin-client-redirects",
+            {
+                // Redirects for the old website
+                redirects: [
+                    {
+                        from: ["/About", "/About/"],
+                        to: "/"
+                    },
+                    {
+                        from: ["/About/CHANGELOG.html", "/About/CHANGELOG"],
+                        to: "/changelog"
+                    },
+                    {
+                        from: ["/About/ApiVersions.html", "/About/ApiVersions"],
+                        to: "/docs/api-versions"
+                    },
+                    {
+                        from: ["/About/ClientID.html", "/About/ClientID"],
+                        to: "/docs/usage-of-clientids"
+                    },
+                    {
+                        from: ["/About/Authorisation.html", "/About/Authorisation"],
+                        to: "/docs/authorizations"
+                    },
+                    {
+                        from: ["/About/VersionHeader.html", "/About/VersionHeader"],
+                        to: "/docs/version-header"
+                    },
+                    {
+                        from: ["/About/exampledocumentupload.html", "/About/exampledocumentupload"],
+                        to: "/docs/example-document-upload"
+                    },
+                    {
+                        from: "/About/examplepm.json",
+                        to: "/docs/example-document-upload/examplepm.json"
+                    },
+                    {
+                        from: ["/About/ztc1_3problemsandsolutions.html", "/About/ztc1_3problemsandsolutions"],
+                        to: "/docs/ztc1_3problemsandsolutions"
+                    }
+                ]
+            }
         ]
     ]
 };
