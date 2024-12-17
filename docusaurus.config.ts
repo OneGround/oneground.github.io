@@ -178,7 +178,7 @@ const config: Config = {
                         to: "/"
                     },
                     {
-                        from: ["/About/CHANGELOG.html", "/About/CHANGELOG", "/About/CHANGELOG"],
+                        from: ["/About/CHANGELOG.html", "/About/CHANGELOG"],
                         to: "/changelog"
                     },
                     {
