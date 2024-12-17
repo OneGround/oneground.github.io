@@ -198,12 +198,8 @@ const config: Config = {
                         to: "/docs/version-header"
                     },
                     {
-                        from: ["/About/exampledocumentupload.html", "/About/exampledocumentupload"],
+                        from: ["/About/exampledocumentupload.html", "/About/exampledocumentupload", "/docs/example-document-upload/examplepm.json"],
                         to: "/docs/example-document-upload"
-                    },
-                    {
-                        from: "/About/examplepm.json",
-                        to: "/docs/example-document-upload/examplepm.json"
                     },
                     {
                         from: ["/About/ztc1_3problemsandsolutions.html", "/About/ztc1_3problemsandsolutions"],
