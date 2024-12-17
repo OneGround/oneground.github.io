@@ -174,7 +174,7 @@ const config: Config = {
                 // Redirects for the old website
                 redirects: [
                     {
-                        from: ["/About", "/About/"],
+                        from: "/About",
                         to: "/"
                     },
                     {
