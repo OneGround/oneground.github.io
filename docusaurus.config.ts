@@ -178,7 +178,7 @@ const config: Config = {
                         to: "/"
                     },
                     {
-                        from: ["/About/CHANGELOG.html", "/About/CHANGELOG"],
+                        from: ["/About/CHANGELOG.html", "/About/CHANGELOG", "/About/CHANGELOG"],
                         to: "/changelog"
                     },
                     {
@@ -208,6 +208,13 @@ const config: Config = {
                     {
                         from: ["/About/ztc1_3problemsandsolutions.html", "/About/ztc1_3problemsandsolutions"],
                         to: "/docs/ztc1_3problemsandsolutions"
+                    },
+                    {
+                        from: [
+                            "/About/Articles/20241203_Best-Practices-for-JWT-Usage-in-APIs",
+                            "/About/Articles/20241203_Best-Practices-for-JWT-Usage-in-APIs.html"
+                        ],
+                        to: "/blog/best-practices-for-jwt-usage-in-apis"
                     }
                 ]
             }
