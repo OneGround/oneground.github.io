@@ -1,17 +1,23 @@
-# Website
+# OneGround Development Portal
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Source code for [dev.oneground.nl](https://dev.oneground.nl) development portal.
 
-### Installation
+This website is built using [Docusaurus](https://docusaurus.io/).
 
-```
-$ yarn
-```
+## Run Locally
 
-### Local Development
+### Packages Installation
 
 ```
-$ yarn start
+$ npm install
+```
+
+Before you begin, make sure to install all packages using this command.
+
+### Start Development
+
+```
+$ npm start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
@@ -19,23 +25,17 @@ This command starts a local development server and opens up a browser window. Mo
 ### Build
 
 ```
-$ yarn build
+$ npm build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-### Deployment
-
-Using SSH:
+### Format Code
 
 ```
-$ USE_SSH=true yarn deploy
+$ npm run format
 ```
 
-Not using SSH:
+Before creating a new commit or pull request, ensure all code is formatted using this command. This is necessary because our pull request build will fail if the code is not properly formatted.
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Source code is formatted using [Prettier](https://prettier.io/).
