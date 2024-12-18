@@ -13,3 +13,13 @@
     --ifm-color-primary-lighter: #652d61;
     --ifm-color-primary-lightest: #72336d;
 }
+
+/**
+ * Making smaller blog post title
+ */
+.title_f1Hy {
+    font-size: 2rem !important;
+    @media (max-width: 576px) {
+        font-size: 1.8rem !important;
+    }
+}
