@@ -42,10 +42,10 @@ hide_table_of_contents: true
 
 ## ZTC
 
-| **Version** | **Support** | **Release**         | **End of life** |
-| ----------- | ----------- | ------------------- | --------------- |
-| 1.0.0       | 🟢 Active   | 2023-01-01          |                 |
-| 1.3.1       | ⚫ Future   | expected 2024-09-19 |                 |
+| **Version** | **Support**    | **Release** | **End of life** |
+| ----------- | -------------- | ----------- | --------------- |
+| 1.0.0       | 🟢 Active      | 2023-01-01  |                 |
+| 1.3.1       | 🟠 Maintenance | 2024-12-20  |                 |
 
 ## Explanation
 
