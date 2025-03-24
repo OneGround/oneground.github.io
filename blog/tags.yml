@@ -2,3 +2,7 @@ security:
     label: Security
     permalink: /security
     description: Security related articles
+integrations:
+    label: Integrations
+    permalink: /integrations
+    description: Articles about best practices and patterns for integrating client application with the ZGW API
