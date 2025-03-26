@@ -12,6 +12,7 @@ Digitally signing documents is a common task in the workflow of handling a case.
 <!-- truncate -->
 
 ## Signing sequence
+
 The basic flow for signing documents is as follows:
 
 - A user working on a case in a task specific application (TSA) or case management system (ZAC) selects one or more documents related to the case to be signed by one or more signers
@@ -24,7 +25,6 @@ The basic flow for signing documents is as follows:
 Below is a sequence diagram with a more detailed view of this flow.
 [![Sequence diagram](/img/signing-sequence.png)](/img/signing-sequence.png)
 [Use this link to view the diagram in full size.](/img/signing-sequence.png)
-
 
 ## ZGW Compliance
 
