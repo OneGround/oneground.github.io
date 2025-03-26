@@ -1,17 +1,18 @@
 ---
 slug: integrating-signing-software-with-zgw
-title: An established pattern to integrate digital document signing software with the ZGW API
+title: A standardized way to initiate signing of documents in the ZGW landscape
 authors: michielnijdam
 tags: [integrations]
 ---
 
 ## Introduction
 
-Digitally signing documents is a common task in the workflow of handling a case. Several software vendors offer solutions for this. This article proposes a standardized way to handle the signing of documents using the ZGW API.
+Digitally signing documents is a common task in the workflow of handling a case. Several software vendors offer solutions for this. This article describes a standardized pattern to handle the signing of documents within the ZGW API landscape. Most API-calls in this pattern are already part of the ZGW standard. The missing link was a way to initiate the signing transaction. In this article we propose a standardized trigger message for this purpose.
 
 <!-- truncate -->
 
-The basic flow for signing is as follows:
+## Signing sequence
+The basic flow for signing documents is as follows:
 
 - A user working on a case in a task specific application (TSA) or case management system (ZAC) selects one or more documents related to the case to be signed by one or more signers
 - The TSA or ZAC sends a trigger message to the signing software
@@ -24,20 +25,21 @@ Below is a sequence diagram with a more detailed view of this flow.
 [![Sequence diagram](/img/signing-sequence.png)](/img/signing-sequence.png)
 [Use this link to view the diagram in full size.](/img/signing-sequence.png)
 
-## Scope of this article
-
-This article describes the interaction between the APIs of the TSA or ZAC, the signing software and the ZGW components (DRC, ZRC and NRC). The user interaction for selecting the documents and signers is out of scope, this is the responsibility of the TSA or ZAC. The same goes for the user interaction of the actual signing of the documents, that is the responsibility of the signing software.
 
 ## ZGW Compliance
 
 Most API requests in this sequence are standard requests already defined in the ZGW specification, with the following two remarks:
 
 - The ZGW standard does not provide in a way to initiate a signing transaction. This article proposes a standardized format for this trigger message. This is the only non-ZGW request in this sequence.
-- The notification to the NRC is a standard request following the NRC specification. The channel used is a custom channel "documentacties". This channel needs to be registered in the NRC for the signing flow to work. Registering a new channel is a standard request within the NRC specification, so all compliant ZGW implementations should support adding this channel. This same channel might be used for other events concerning documents in the future.
+- The notification to the NRC at the end of the signing flow is a standard request following the NRC specification. The channel used is a custom channel "documentacties". This channel needs to be registered in the NRC for the signing flow to work. This is a one-tima action that should be done by the administrator of the ZGW implementation. Registering a new channel is a standard request within the NRC specification, so all compliant ZGW implementations should support adding this channel. This same channel might be used for other events concerning documents in the future.
+
+## Scope of this article
+
+This article describes the interaction between the APIs of the TSA or ZAC, the signing software and the ZGW components (DRC, ZRC and NRC). The user interaction for selecting the documents and signers is out of scope, this is the responsibility of the TSA or ZAC. The same goes for the user interaction of the actual signing of the documents, that is the responsibility of the signing software.
 
 ## Existing implementations
 
-The pattern described here is already implemented and used in production settings by the signing applications ValidSign and Zynyo and by the TSA Rx.Mission. These existing implementations use OneGround as the ZGW implementation, but as this pattern only uses standard behaviour of the ZGW components, it should work on any compliant ZGW implementation.
+The pattern described here is already implemented and used in production settings by the signing applications [ValidSign](https://www.validsign.eu/) and [Zynyo](https://zynyo.com/) and by the TSA [Rx.Mission](https://rxmission.nl/). These existing implementations use OneGround as the ZGW implementation, but as this pattern only uses standard behaviour of the ZGW components, it should work on any compliant ZGW implementation.
 
 ## Technical details
 
@@ -53,7 +55,7 @@ The type of authentication on the trigger message is determined by the signing s
 
 #### Authentication of the signer
 
-Before the documents are presented to the signer, this person should authenticate themselves. This is also the responsibility of the signing software. See the details of the trigger message for more on this.
+Before the documents are presented to the signer, this person should authenticate themselves. Handling this authentication is the responsibility of the signing software, however the required type of authentication can be set in the trigger message send by the TSA or ZAC. See the details of the trigger message for more on this.
 
 ### Trigger message
 
@@ -82,7 +84,7 @@ To initiate the signing process, the TSA or ZAC should post a trigger message to
             "e-mail": "john.doe@some.domain", // e-mail of signer
             "voornaam": "John", // first name of signer
             "achternaam": "Doe", // last name of signer
-            "identificatie": "Signer1", // string to identify the signer
+            "identificatie": "Signer1", // string to identify the signer; can be used to relate this signer to specific signing areas or placeholders in the documents (not all signing software might need this property but supplying it should not cause errors)
             "volgorde": 1, // order number used to determine in which order the signers should sign in case of multiple signers
             "authenticatie": { // Method of authentication this signer should use to identify themselves
                 "methode": "sms",
