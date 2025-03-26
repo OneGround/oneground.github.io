@@ -7,3 +7,11 @@ giedriusgrabauskas:
     socials:
         github: Grabauskas
         linkedin: giedriusgrabauskas
+michielnijdam:
+    name: Michiel Nijdam
+    title: Information Analyst @ Visma Roxit
+    image_url: https://github.com/MNIJ.png
+    page: true
+    socials:
+        github: MNIJ
+        linkedin: michielnijdam
