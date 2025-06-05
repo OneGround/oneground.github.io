@@ -70,11 +70,11 @@ function OneGroundEditions() {
                                     inspect, and enhance.
                                 </p>
                                 <div className={styles.editionFeatures}>
-                                    <div className={styles.feature}>✓ Open source available via GitHub</div>
-                                    <div className={styles.feature}>✓ Self-hosted and managed</div>
-                                    <div className={styles.feature}>✓ Source code available for inspection</div>
-                                    <div className={styles.feature}>✓ All ZGW API components included</div>
-                                    <div className={styles.feature}>✓ Free to use and customize</div>
+                                    <div className={styles.feature}>Open source available via GitHub</div>
+                                    <div className={styles.feature}>Self-hosted and managed</div>
+                                    <div className={styles.feature}>Source code available for inspection</div>
+                                    <div className={styles.feature}>All ZGW API components included</div>
+                                    <div className={styles.feature}>Free to use and customize</div>
                                 </div>
                                 <div className={styles.editionButtons}>
                                     <Link className="button button--primary button--block" to="/docs/about-oneground">
@@ -108,12 +108,12 @@ function OneGroundEditions() {
                                     management, and security.
                                 </p>
                                 <div className={styles.editionFeatures}>
-                                    <div className={styles.feature}>✓ Hosting on Dutch servers</div>
-                                    <div className={styles.feature}>✓ 24-hour management and support</div>
-                                    <div className={styles.feature}>✓ Complies with ISO standards</div>
-                                    <div className={styles.feature}>✓ ADFS integration available</div>
-                                    <div className={styles.feature}>✓ UI for task application management</div>
-                                    <div className={styles.feature}>✓ Rate limiting on API Gateway</div>
+                                    <div className={styles.feature}>Hosting on Dutch servers</div>
+                                    <div className={styles.feature}>24-hour management and support</div>
+                                    <div className={styles.feature}>Complies with ISO standards</div>
+                                    <div className={styles.feature}>ADFS integration available</div>
+                                    <div className={styles.feature}>UI for task application management</div>
+                                    <div className={styles.feature}>Rate limiting on API Gateway</div>
                                 </div>
                                 <div className={styles.editionButtons}>
                                     <Link className="button button--primary button--block" to="https://portaal.oneground.nl/register">
