@@ -122,7 +122,7 @@ const config: Config = {
                         },
                         {
                             label: "Linkedin",
-                            href: "https://www.linkedin.com/company/roxit/"
+                            href: "https://www.linkedin.com/showcase/one-ground/"
                         },
                         {
                             label: "Youtube",
