@@ -113,7 +113,7 @@ function OneGroundEditions() {
                                     <div className={styles.feature}>Complies with ISO standards for archiving</div>
                                     <div className={styles.feature}>ADFS integration available</div>
                                     <div className={styles.feature}>Dashboard for API storage and usage statistics</div>
-                                    <div className={styles.feature}>Configuration tool for ClientID's and authorisations/div>
+                                    <div className={styles.feature}>Configuration tool for ClientID's and authorisations</div>
                                     <div className={styles.feature}>Rate limiting on API Gateway</div>
                                 </div>
                                 <div className={styles.editionButtons}>
