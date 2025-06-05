@@ -10,7 +10,9 @@ description: "Introduction about OneGround"
 OneGround is the implementation by Roxit of "case oriented" Api's and registrations according to the [VNG specifications](https://vng-realisatie.github.io/gemma-zaken/standaard/).
 It contains ZTC, ZRC, DRC, BRC, NC, AC and reference lists.
 
-OneGround comes in two ways: attended and unattended. Attended is the full Saas variant currently available. Unattended is the Open Source variant which will be released later.
+OneGround comes in two ways: attended and unattended. The attended version is full Saas and is hosted and maintained by Roxit. Apply [here](https://portaal.oneground.nl/register) for a trial account on the Saas version.
+
+The unattended variant is available as [Open Source](https://github.com/OneGround/ZGW-APIs).
 
 ## Characteristics of OneGround Unlimited (attended)
 
