@@ -110,7 +110,7 @@ function OneGroundEditions() {
                                 <div className={styles.editionFeatures}>
                                     <div className={styles.feature}>Hosting on Dutch servers</div>
                                     <div className={styles.feature}>24-hour monitoring</div>
-                                    <div className={styles.feature}>Complies with ISO standards</div>
+                                    <div className={styles.feature}>Complies with ISO standards for archiving</div>
                                     <div className={styles.feature}>ADFS integration available</div>
                                     <div className={styles.feature}>UI for task application management</div>
                                     <div className={styles.feature}>Rate limiting on API Gateway</div>
