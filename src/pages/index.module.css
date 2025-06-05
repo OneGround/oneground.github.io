@@ -4,42 +4,55 @@
  */
 
 .heroBanner {
-    padding: 6rem 0;
+    padding: 8rem 0;
     text-align: center;
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (max-width: 996px) {
     .heroBanner {
-        padding: 4rem 2rem;
+        padding: 5rem 2rem;
     }
 }
 
 .heroContent {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
 .heroTitle {
-    font-size: 3.5rem;
-    font-weight: 700;
+    font-size: 4rem;
+    font-weight: 800;
     margin-bottom: 1.5rem;
     color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (max-width: 996px) {
     .heroTitle {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
 }
 
 .heroSubtitle {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 2.5rem;
-    line-height: 1.6;
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.heroDescription {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 3rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .buttons {
@@ -47,30 +60,54 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 @media screen and (max-width: 768px) {
     .buttons {
         flex-direction: column;
         align-items: stretch;
+        gap: 1rem;
     }
-    
+
     .buttons .button {
-        margin: 0.5rem 0;
+        margin: 0;
     }
 }
 
-.buttons .button {
-    min-width: 140px;
+.primaryButton {
+    min-width: 160px;
     font-weight: 600;
-    border-radius: 8px;
+    border-radius: 12px;
     transition: all 0.3s ease;
+    background-color: white !important;
+    color: var(--ifm-color-primary) !important;
+    border: 2px solid white !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.buttons .button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+.primaryButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.outlineButton {
+    min-width: 160px;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background-color: transparent !important;
+    color: white !important;
+    border: 2px solid rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(10px);
+}
+
+.outlineButton:hover {
+    transform: translateY(-3px);
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border-color: white !important;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
 }
 
 /* Editions Section */
@@ -147,20 +184,6 @@
     margin-bottom: 0;
 }
 
-.popularBadge {
-    position: absolute;
-    top: -1rem;
-    right: -1rem;
-    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
 .editionContent {
     flex: 1;
     display: flex;
@@ -193,7 +216,7 @@
 }
 
 .feature:before {
-    content: '';
+    content: "";
     width: 20px;
     height: 20px;
     background-color: var(--ifm-color-success);
@@ -202,7 +225,8 @@
     flex-shrink: 0;
     background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6 10.293l7.146-7.147a.5.5 0 0 1 .708.708z'/%3e%3c/svg%3e");
     background-position: center;
-    background-repeat: no-repeat;    background-size: 12px;
+    background-repeat: no-repeat;
+    background-size: 12px;
 }
 
 .comparisonNote {
@@ -232,11 +256,11 @@
     .editions {
         padding: 3rem 0;
     }
-    
+
     .editionsTitle {
         font-size: 2rem;
     }
-    
+
     .editionCard {
         margin-bottom: 2rem;
     }
