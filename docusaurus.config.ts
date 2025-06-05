@@ -73,6 +73,12 @@ const config: Config = {
                     position: "left"
                 },
                 {
+                    href: "https://github.com/OneGround/ZGW-APIs",
+                    position: "right",
+                    className: "header-github-link",
+                    "aria-label": "GitHub repository"
+                },
+                {
                     href: "https://oneground.nl",
                     label: "OneGround.nl",
                     position: "right"
@@ -116,7 +122,7 @@ const config: Config = {
                         },
                         {
                             label: "Linkedin",
-                            href: "https://www.linkedin.com/company/roxit/"
+                            href: "https://www.linkedin.com/showcase/one-ground/"
                         },
                         {
                             label: "Youtube",

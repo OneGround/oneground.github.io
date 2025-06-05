@@ -4,24 +4,264 @@
  */
 
 .heroBanner {
-    padding: 4rem 0;
+    padding: 8rem 0;
     text-align: center;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (max-width: 996px) {
     .heroBanner {
-        padding: 2rem;
+        padding: 5rem 2rem;
     }
+}
+
+.heroContent {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.heroTitle {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 996px) {
+    .heroTitle {
+        font-size: 2.8rem;
+    }
+}
+
+.heroSubtitle {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.heroDescription {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 3rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .buttons {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
-.buttons .button {
-    margin: 1rem;
+@media screen and (max-width: 768px) {
+    .buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .buttons .button {
+        margin: 0;
+    }
+}
+
+.primaryButton {
+    min-width: 160px;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background-color: white !important;
+    color: var(--ifm-color-primary) !important;
+    border: 2px solid white !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.primaryButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.outlineButton {
+    min-width: 160px;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background-color: transparent !important;
+    color: white !important;
+    border: 2px solid rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(10px);
+}
+
+.outlineButton:hover {
+    transform: translateY(-3px);
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border-color: white !important;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Editions Section */
+.editions {
+    padding: 5rem 0;
+    background-color: #f8f9fa;
+}
+
+.editionsHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.editionsTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--ifm-color-primary);
+    margin-bottom: 1rem;
+}
+
+.editionsSubtitle {
+    font-size: 1.1rem;
+    color: var(--ifm-color-secondary-darkest);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.editionCard {
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem;
+    height: 100%;
+    border: 2px solid #e1e5e9;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.editionCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--ifm-color-primary-light);
+}
+
+.editionCardFeatured {
+    border-color: var(--ifm-color-primary);
+    border-width: 3px;
+}
+
+.editionCardFeatured:hover {
+    border-color: var(--ifm-color-primary-dark);
+}
+
+.editionHeader {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.editionBrand {
+    font-size: 0.9rem;
+    color: var(--ifm-color-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.editionName {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--ifm-color-emphasis-900);
+    margin-bottom: 0;
+}
+
+.editionContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.editionDescription {
+    color: var(--ifm-color-emphasis-700);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    flex: 1;
+}
+
+.editionFeatures {
+    margin-bottom: 2rem;
+}
+
+.editionButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    color: var(--ifm-color-emphasis-800);
+    font-weight: 500;
+}
+
+.feature:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: var(--ifm-color-success);
+    border-radius: 50%;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6 10.293l7.146-7.147a.5.5 0 0 1 .708.708z'/%3e%3c/svg%3e");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+}
+
+.comparisonNote {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e1e5e9;
+}
+
+.comparisonNote p {
+    color: var(--ifm-color-emphasis-700);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.comparisonNote a {
+    color: var(--ifm-color-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.comparisonNote a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 996px) {
+    .editions {
+        padding: 3rem 0;
+    }
+
+    .editionsTitle {
+        font-size: 2rem;
+    }
+
+    .editionCard {
+        margin-bottom: 2rem;
+    }
 }
