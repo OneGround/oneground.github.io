@@ -103,9 +103,9 @@ function OneGroundEditions() {
                             </div>{" "}
                             <div className={styles.editionContent}>
                                 <p className={styles.editionDescription}>
-                                    The Unlimited variant offers a full SaaS experience where you are fully supported and provided with
-                                    all conveniences to quickly deploy Common Ground applications. Roxit handles hosting, technical
-                                    management, and security.
+                                    The Unlimited variant offers a full SaaS experience where you are fully supported and provided with all
+                                    conveniences to quickly deploy Common Ground applications. Roxit handles hosting, technical management,
+                                    and security.
                                 </p>
                                 <div className={styles.editionFeatures}>
                                     <div className={styles.feature}>Hosting on Dutch servers</div>
