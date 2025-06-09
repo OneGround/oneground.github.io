@@ -14,13 +14,13 @@ function HomepageHeader() {
                 <div className={styles.heroContent}>
                     <div className={styles.heroText}>
                         <Heading as="h1" className={styles.heroTitle}>
-                            {siteConfig.title}
+                            OneGround
                         </Heading>
                         <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
                         <p className={styles.heroDescription}>
-                            OneGround’s implementation of ZGW APIs, providing API components and related modules for a standardized Dutch
+                           OneGround’s implementation of ZGW APIs, providing API components and related modules for a standardized Dutch
                             approach to case management (Zaakgericht Werken).
-                        </p>
+                         </p>
                         <div className={styles.buttons}>
                             <Link className={clsx("button button--primary button--lg", styles.primaryButton)} to="/docs/about-oneground">
                                 Get Started
@@ -62,7 +62,7 @@ function OneGroundEditions() {
                                 <Heading as="h3" className={styles.editionName}>
                                     Community Edition
                                 </Heading>
-                            </div>{" "}
+                            </div>
                             <div className={styles.editionContent}>
                                 <p className={styles.editionDescription}>
                                     The Community Edition is available as an open source variant and can be downloaded via GitHub by
@@ -100,13 +100,13 @@ function OneGroundEditions() {
                                 <Heading as="h3" className={styles.editionName}>
                                     Unlimited
                                 </Heading>
-                            </div>{" "}
+                            </div>
                             <div className={styles.editionContent}>
                                 <p className={styles.editionDescription}>
-                                    The Unlimited variant offers a full SaaS experience where you are fully supported and provided with all
+                                  The Unlimited variant offers a full SaaS experience where you are fully supported and provided with all
                                     conveniences to quickly deploy Common Ground applications. Roxit handles hosting, technical management,
                                     and security.
-                                </p>
+                            </p>
                                 <div className={styles.editionFeatures}>
                                     <div className={styles.feature}>Hosting on Dutch servers</div>
                                     <div className={styles.feature}>24-hour monitoring</div>
@@ -149,7 +149,10 @@ export default function Home(): JSX.Element {
     const { siteConfig } = useDocusaurusContext();
 
     return (
-        <Layout title="Home" description="ZGW registrations and Api's">
+        <Layout
+            title="ZGW API Documentation & Developer Portal"
+            description="Complete ZGW API implementation for Dutch case management (Zaakgericht Werken). Developer documentation, guides, and integration resources for ZRC, DRC, ZTC, BRC, NRC, and AC components."
+        >
             <HomepageHeader />
             <main>
                 <OneGroundEditions />
