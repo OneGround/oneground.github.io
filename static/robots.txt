@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://dev.oneground.nl/sitemap.xml
+
+# Allow all pages for indexing
+Allow: /docs/
+Allow: /blog/
+Allow: /changelog/
+
+# Disallow build artifacts and internal files
+Disallow: /build/
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.json$
