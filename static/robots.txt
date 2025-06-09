@@ -13,4 +13,5 @@ Allow: /changelog/
 Disallow: /build/
 Disallow: /*.js$
 Disallow: /*.css$
+Allow: /structured-data.json
 Disallow: /*.json$
