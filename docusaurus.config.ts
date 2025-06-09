@@ -6,8 +6,8 @@ import type * as PluginContentBlog from "@docusaurus/plugin-content-blog";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-    title: "OneGround",
-    tagline: "ZGW registrations and Api's",
+    title: "OneGround - ZGW API Documentation & Developer Portal",
+    tagline: "Production-ready ZGW APIs for Dutch government applications",
     favicon: "img/favicon.png",
     url: "https://dev.oneground.nl",
     baseUrl: "/",
@@ -15,6 +15,7 @@ const config: Config = {
     projectName: "DevPortal",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
+    trailingSlash: false,
     i18n: {
         defaultLocale: "en",
         locales: ["en"]
@@ -25,13 +26,21 @@ const config: Config = {
             "classic",
             {
                 docs: {
-                    sidebarPath: "./sidebars.ts"
+                    sidebarPath: "./sidebars.ts",
+                    editUrl: "https://github.com/OneGround/oneground.github.io/tree/main/",
+                    showLastUpdateTime: true,
+                    showLastUpdateAuthor: true
                 },
                 blog: {
                     showReadingTime: true,
+                    blogTitle: "OneGround ZGW API Blog - Insights & Best Practices",
+                    blogDescription:
+                        "Latest insights, best practices, and technical articles about ZGW API implementation, Dutch case management, and OneGround platform updates.",
                     feedOptions: {
                         type: ["rss", "atom"],
-                        xslt: true
+                        xslt: true,
+                        title: "OneGround ZGW API Blog",
+                        description: "Latest insights and best practices for ZGW API implementation and Dutch case management"
                     },
                     onInlineTags: "warn",
                     onInlineAuthors: "warn",
@@ -43,8 +52,49 @@ const config: Config = {
             } satisfies Preset.Options
         ]
     ],
-
     themeConfig: {
+        metadata: [
+            {
+                name: "description",
+                content:
+                    "OneGround ZGW API documentation - Complete implementation of Dutch case management APIs (Zaakgericht Werken). Access developer guides, API references, integration examples, and best practices for ZRC, DRC, ZTC, BRC, NRC, and AC components."
+            },
+            {
+                name: "keywords",
+                content:
+                    "ZGW API, Zaakgericht Werken, Dutch case management, ZRC, DRC, ZTC, BRC, NRC, AC, OneGround, API documentation, VNG standards, government APIs, case registration, document management, type catalog, decision registration, notification center, authorization component"
+            },
+            {
+                property: "og:title",
+                content: "OneGround - ZGW API Documentation & Developer Portal"
+            },
+            {
+                property: "og:description",
+                content:
+                    "Complete ZGW API implementation for Dutch case management (Zaakgericht Werken). Developer documentation, guides, and integration resources for all ZGW components."
+            },
+            {
+                property: "og:type",
+                content: "website"
+            },
+            {
+                property: "og:site_name",
+                content: "OneGround Developer Portal"
+            },
+            {
+                name: "twitter:card",
+                content: "summary_large_image"
+            },
+            {
+                name: "twitter:title",
+                content: "OneGround - ZGW API Documentation & Developer Portal"
+            },
+            {
+                name: "twitter:description",
+                content:
+                    "Complete ZGW API implementation for Dutch case management (Zaakgericht Werken). Developer documentation, guides, and integration resources."
+            }
+        ],
         colorMode: {
             defaultMode: "light",
             disableSwitch: true
@@ -164,14 +214,17 @@ const config: Config = {
                 id: "changelog",
                 routeBasePath: "changelog",
                 path: "./changelog",
-                blogTitle: "Changelog",
-                blogDescription: "Changelog for OneGround",
+                blogTitle: "OneGround ZGW API Changelog - Release Notes & Updates",
+                blogDescription:
+                    "Complete changelog and release notes for OneGround ZGW API components including ZRC, DRC, ZTC, BRC, NRC, and AC updates, bug fixes, and new features.",
                 blogSidebarTitle: "Recent releases",
                 showReadingTime: false,
                 tags: false,
                 onUntruncatedBlogPosts: "ignore",
                 feedOptions: {
-                    type: "all"
+                    type: "all",
+                    title: "OneGround ZGW API Changelog",
+                    description: "Latest releases and updates for OneGround ZGW API platform"
                 }
             } satisfies PluginContentBlog.Options
         ],
