@@ -14,7 +14,7 @@ function HomepageHeader() {
                 <div className={styles.heroContent}>
                     <div className={styles.heroText}>
                         <Heading as="h1" className={styles.heroTitle}>
-                            {siteConfig.title}
+                            OneGround
                         </Heading>
                         <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
                         <p className={styles.heroDescription}>
@@ -62,7 +62,7 @@ function OneGroundEditions() {
                                 <Heading as="h3" className={styles.editionName}>
                                     Community Edition
                                 </Heading>
-                            </div>{" "}
+                            </div>
                             <div className={styles.editionContent}>
                                 <p className={styles.editionDescription}>
                                     The Community Edition is available as an open source variant and can be downloaded via GitHub by
@@ -100,7 +100,7 @@ function OneGroundEditions() {
                                 <Heading as="h3" className={styles.editionName}>
                                     Unlimited
                                 </Heading>
-                            </div>{" "}
+                            </div>
                             <div className={styles.editionContent}>
                                 <p className={styles.editionDescription}>
                                     The Unlimited variant offers a full SaaS experience where you are fully supported and provided with all
@@ -149,7 +149,10 @@ export default function Home(): JSX.Element {
     const { siteConfig } = useDocusaurusContext();
 
     return (
-        <Layout title="Home" description="ZGW registrations and Api's">
+        <Layout
+            title="ZGW API Documentation & Developer Portal"
+            description="Complete ZGW API implementation for Dutch case management (Zaakgericht Werken). Developer documentation, guides, and integration resources for ZRC, DRC, ZTC, BRC, NRC, and AC components."
+        >
             <HomepageHeader />
             <main>
                 <OneGroundEditions />

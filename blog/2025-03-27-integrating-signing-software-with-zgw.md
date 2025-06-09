@@ -1,8 +1,20 @@
 ---
 slug: integrating-signing-software-with-zgw
-title: A standardized way to initiate signing of documents in the ZGW landscape
+title: "Standardized Document Signing Integration for ZGW APIs - Complete Guide"
+description: "Learn how to integrate digital document signing software with ZGW APIs. Complete implementation guide with API patterns, authentication methods, and standardized trigger messages for OneGround and compliant ZGW systems."
 authors: michielnijdam
 tags: [integrations]
+keywords:
+    - document signing
+    - ZGW integration
+    - digital signatures
+    - ValidSign integration
+    - Zynyo integration
+    - ZGW API patterns
+    - document workflow
+    - signing software
+    - OneGround integration
+    - API authentication
 ---
 
 ## Introduction
