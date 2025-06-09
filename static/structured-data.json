@@ -1,0 +1,256 @@
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": "https://dev.oneground.nl/#organization",
+            "name": "OneGround",
+            "alternateName": "Roxit OneGround",
+            "url": "https://dev.oneground.nl",
+            "sameAs": ["https://github.com/OneGround", "https://oneground.nl", "https://portaal.oneground.nl"],
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://dev.oneground.nl/img/logo.png",
+                "width": 200,
+                "height": 60
+            },
+            "description": "OneGround provides production-ready ZGW API implementation for Dutch government applications and case management (Zaakgericht Werken).",
+            "foundingDate": "2024",
+            "knowsAbout": ["Government Technology", "Software Development", "API Management"],
+            "location": {
+                "@type": "Place",
+                "@id": "https://dev.oneground.nl/#place",
+                "name": "Netherlands"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "Customer Service",
+                "url": "https://oneground.nl/contact/"
+            }
+        },
+        {
+            "@type": "Place",
+            "@id": "https://dev.oneground.nl/#place",
+            "name": "Netherlands",
+            "containedInPlace": {
+                "@type": "Country",
+                "name": "Netherlands",
+                "alternateName": "The Netherlands"
+            }
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://dev.oneground.nl/#website",
+            "url": "https://dev.oneground.nl",
+            "name": "OneGround - ZGW API Documentation & Developer Portal",
+            "description": "Complete ZGW API implementation for Dutch case management (Zaakgericht Werken). Developer documentation, guides, and integration resources for ZRC, DRC, ZTC, BRC, NRC, and AC components.",
+            "publisher": {
+                "@id": "https://dev.oneground.nl/#organization"
+            },
+            "inLanguage": "en",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://dev.oneground.nl/search?q={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+            }
+        },
+        {
+            "@type": "SoftwareApplication",
+            "@id": "https://dev.oneground.nl/#software",
+            "name": "OneGround ZGW API Platform",
+            "applicationCategory": "Government Software",
+            "applicationSubCategory": "Case Management System",
+            "operatingSystem": "Cloud-based",
+            "url": "https://dev.oneground.nl",
+            "downloadUrl": "https://github.com/OneGround/ZGW-APIs",
+            "softwareHelp": "https://dev.oneground.nl/docs",
+            "description": "OneGround's implementation of ZGW APIs, providing API components and related modules for a standardized Dutch approach to case management (Zaakgericht Werken). Built with .NET and C#.",
+            "featureList": [
+                "ZRC - Zaken Component",
+                "DRC - Documenten Component",
+                "ZTC - Catalogi Component",
+                "BRC - Besluiten Component",
+                "NRC - Notificaties Component",
+                "AC - Autorisaties Component",
+                "RL - Referentielijsten Component",
+                "High Performance API handling",
+                "No document size limits",
+                "Open Source availability"
+            ],
+            "offers": [
+                {
+                    "@type": "Offer",
+                    "name": "OneGround Community Edition",
+                    "description": "Open source variant available via GitHub for self-hosted deployment",
+                    "price": "0",
+                    "priceCurrency": "EUR",
+                    "availability": "https://schema.org/InStock",
+                    "category": "Open Source Software"
+                },
+                {
+                    "@type": "Offer",
+                    "name": "OneGround Unlimited",
+                    "description": "Full SaaS experience with hosting, management, and 24-hour monitoring on Dutch servers",
+                    "priceSpecification": {
+                        "@type": "PriceSpecification",
+                        "price": "Contact for pricing",
+                        "priceCurrency": "EUR"
+                    },
+                    "availability": "https://schema.org/InStock",
+                    "category": "SaaS Software"
+                }
+            ],
+            "provider": {
+                "@id": "https://dev.oneground.nl/#organization"
+            },
+            "creator": {
+                "@id": "https://dev.oneground.nl/#organization"
+            },
+            "maintainer": {
+                "@id": "https://dev.oneground.nl/#organization"
+            },
+            "sourceOrganization": {
+                "@id": "https://dev.oneground.nl/#organization"
+            },
+            "license": "https://github.com/OneGround/ZGW-APIs/blob/main/LICENSE",
+            "softwareVersion": "Latest",
+            "releaseNotes": "https://dev.oneground.nl/changelog",
+            "softwareRequirements": ".NET 8.0 or higher",
+            "installUrl": "https://dev.oneground.nl/docs/about-oneground"
+        },
+        {
+            "@type": "TechArticle",
+            "@id": "https://dev.oneground.nl/docs/about-oneground#article",
+            "headline": "About OneGround - Complete ZGW API Implementation",
+            "description": "OneGround is a comprehensive implementation of Dutch ZGW APIs for case management (Zaakgericht Werken). Learn about ZRC, DRC, ZTC, BRC, NRC, AC components, features, and how to get started.",
+            "url": "https://dev.oneground.nl/docs/about-oneground",
+            "datePublished": "2024-01-01",
+            "dateModified": "2025-06-09",
+            "author": {
+                "@id": "https://dev.oneground.nl/#organization"
+            },
+            "publisher": {
+                "@id": "https://dev.oneground.nl/#organization"
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://dev.oneground.nl/docs/about-oneground"
+            },
+            "articleSection": "Documentation",
+            "keywords": [
+                "OneGround",
+                "ZGW API",
+                "Zaakgericht Werken",
+                "Dutch case management",
+                "ZRC",
+                "DRC",
+                "ZTC",
+                "BRC",
+                "NRC",
+                "AC",
+                "RL",
+                "VNG standards",
+                "government APIs"
+            ]
+        },
+        {
+            "@type": "Blog",
+            "@id": "https://dev.oneground.nl/blog#blog",
+            "url": "https://dev.oneground.nl/blog",
+            "name": "OneGround ZGW API Blog - Insights & Best Practices",
+            "description": "Latest insights, best practices, and technical articles about ZGW API implementation, Dutch case management, and OneGround platform updates.",
+            "publisher": {
+                "@id": "https://dev.oneground.nl/#organization"
+            },
+            "inLanguage": "en"
+        },
+        {
+            "@type": "FAQPage",
+            "@id": "https://dev.oneground.nl/#faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is OneGround?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "OneGround is the implementation by Roxit of case oriented APIs and registrations according to the VNG specifications. It contains ZTC, ZRC, DRC, BRC, NC, AC and reference lists for Dutch government case management."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What are the OneGround editions?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "OneGround comes in two editions: Community Edition (open source, self-hosted) and Unlimited (full SaaS with hosting, monitoring, and support on Dutch servers)."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What ZGW components does OneGround include?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "OneGround includes all ZGW API components: ZRC (Case Registration), DRC (Document Registration), ZTC (Case Type Catalog), BRC (Decision Registration), NRC (Notification Center), and AC (Authorization Component)."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is OneGround compliant with Dutch standards?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, OneGround follows VNG ZGW standards closely and fulfills NEN-ISO 16175 requirements for archival compliance. It's built specifically to comply with ZGW standards."
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": "https://dev.oneground.nl/#breadcrumb",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://dev.oneground.nl"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Documentation",
+                    "item": "https://dev.oneground.nl/docs"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Blog",
+                    "item": "https://dev.oneground.nl/blog"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": "Changelog",
+                    "item": "https://dev.oneground.nl/changelog"
+                }
+            ]
+        },
+        {
+            "@type": "Dataset",
+            "@id": "https://dev.oneground.nl/#dataset",
+            "name": "ZGW API Documentation Dataset",
+            "description": "Comprehensive documentation dataset for ZGW API implementation including guides, references, and integration examples",
+            "url": "https://dev.oneground.nl/docs",
+            "creator": {
+                "@id": "https://dev.oneground.nl/#organization"
+            },
+            "keywords": ["ZGW API", "Documentation", "Dutch Government", "Case Management", "API Reference"],
+            "license": "https://github.com/OneGround/oneground.github.io/blob/main/LICENSE",
+            "distribution": {
+                "@type": "DataDownload",
+                "encodingFormat": "text/html",
+                "contentUrl": "https://dev.oneground.nl/docs"
+            }
+        }
+    ]
+}

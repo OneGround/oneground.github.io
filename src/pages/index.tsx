@@ -18,9 +18,9 @@ function HomepageHeader() {
                         </Heading>
                         <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
                         <p className={styles.heroDescription}>
-                           OneGround’s implementation of ZGW APIs, providing API components and related modules for a standardized Dutch
+                            OneGround’s implementation of ZGW APIs, providing API components and related modules for a standardized Dutch
                             approach to case management (Zaakgericht Werken).
-                         </p>
+                        </p>
                         <div className={styles.buttons}>
                             <Link className={clsx("button button--primary button--lg", styles.primaryButton)} to="/docs/about-oneground">
                                 Get Started
@@ -103,10 +103,10 @@ function OneGroundEditions() {
                             </div>
                             <div className={styles.editionContent}>
                                 <p className={styles.editionDescription}>
-                                  The Unlimited variant offers a full SaaS experience where you are fully supported and provided with all
+                                    The Unlimited variant offers a full SaaS experience where you are fully supported and provided with all
                                     conveniences to quickly deploy Common Ground applications. Roxit handles hosting, technical management,
                                     and security.
-                            </p>
+                                </p>
                                 <div className={styles.editionFeatures}>
                                     <div className={styles.feature}>Hosting on Dutch servers</div>
                                     <div className={styles.feature}>24-hour monitoring</div>
