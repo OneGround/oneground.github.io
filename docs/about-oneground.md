@@ -1,6 +1,20 @@
 ---
-title: "About OneGround"
-description: "Introduction about OneGround"
+title: "About OneGround - Complete ZGW API Implementation"
+description: "OneGround is a comprehensive implementation of Dutch ZGW APIs for case management (Zaakgericht Werken). Learn about ZRC, DRC, ZTC, BRC, NRC, AC components, features, and how to get started with OneGround."
+keywords:
+    - OneGround
+    - ZGW API
+    - Zaakgericht Werken
+    - Dutch case management
+    - ZRC
+    - DRC
+    - ZTC
+    - BRC
+    - NRC
+    - AC
+    - VNG standards
+    - government APIs
+    - API documentation
 ---
 
 # About OneGround

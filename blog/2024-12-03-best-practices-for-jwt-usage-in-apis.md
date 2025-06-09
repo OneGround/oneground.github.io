@@ -1,8 +1,19 @@
 ---
 slug: best-practices-for-jwt-usage-in-apis
-title: Best Practices for JWT Usage in APIs
+title: "Best Practices for JWT Usage in APIs - OneGround Security Guide"
+description: "Comprehensive guide to implementing JWT authentication securely in ZGW APIs and OneGround. Learn about token security, validation, best practices, and common pitfalls to avoid."
 authors: giedriusgrabauskas
 tags: [security]
+keywords:
+    - JWT security
+    - API authentication
+    - JSON Web Tokens
+    - ZGW API security
+    - OneGround authentication
+    - token validation
+    - API security best practices
+    - bearer tokens
+    - security implementation
 ---
 
 # Best Practices for JWT Usage in APIs
