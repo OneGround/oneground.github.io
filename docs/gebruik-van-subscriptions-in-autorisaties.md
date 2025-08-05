@@ -21,7 +21,7 @@ A subscription (abonnement) is a registration that allows an application to be a
 | Field Name  | Description                                                                                                                                              | Value Type                                                                                      | Example                                    |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------ |
 | callbackUrl | The URL to which notifications will be sent.                                                                                                             | URL                                                                                             | https://myapp.zaakgerichtwerken.nl/webhook |
-| auth        | Value of bearer token                                                                                                                                    | String                                                                                          | 8a0WWCKMgh1EIBlD2g1b6yQDtTpIgFYE           |
+| auth        | Value of bearer token                                                                                                                                    | String                                                                                          | Bearer 8a0WWCKMgh1EIBlD2g1b6yQDtTpIgFYE    |
 | kanalen     | Channels to which you can subscribe. Standard channels are zaken, besluiten, documenten, zaaktypen, besluittypen, informatieobjecttypen and autorisaties | Array of Objects. Each object consists of filters (explained below) and the name of the channel | See below                                  |
 
 ## Possible Values for Filters
@@ -104,7 +104,7 @@ Filters allows your application to limit the notifications it receives to only t
 ```json
 {
     "callbackUrl": "https://myapp.zaakgerichtwerken.nl/webhook",
-    "auth": "8a0WWCKMgh1EIBlD2g1b6yQDtTpIgFYE",
+    "auth": "Bearer 8a0WWCKMgh1EIBlD2g1b6yQDtTpIgFYE",
     "kanalen": [
         {
             "filters": {
