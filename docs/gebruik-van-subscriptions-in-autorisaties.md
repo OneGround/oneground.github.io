@@ -1,6 +1,5 @@
 # Use of Subscriptions for Notifications
 
-
 ## What is a subscription?
 
 A subscription (abonnement) is a registration that allows an application to be automatically notified of changes.
@@ -27,7 +26,7 @@ A subscription (abonnement) is a registration that allows an application to be a
 
 ## Possible Values for Filters
 
-Filters allows your application to limit the notifications it receives to only those changes that match specific criteria. Each channel supports its own set of filter fields. When evaluating filter values, they are combined using AND logic, meaning that only changes matching _all_ specified filters will trigger a notification. Below you will find the possible filter fields for each channel. The vule of a filter field always is a single string. If you need to subscribe to multiple values you can either create multiple subscriptions or an array of channels within a subscription. 
+Filters allows your application to limit the notifications it receives to only those changes that match specific criteria. Each channel supports its own set of filter fields. When evaluating filter values, they are combined using AND logic, meaning that only changes matching _all_ specified filters will trigger a notification. Below you will find the possible filter fields for each channel. The vule of a filter field always is a single string. If you need to subscribe to multiple values you can either create multiple subscriptions or an array of channels within a subscription.
 
 ### Filters for the Zaken channel
 
@@ -100,7 +99,7 @@ Filters allows your application to limit the notifications it receives to only t
 | `catalogus` | The URL of the catalog in field catalogus                                                                                         | https://.../catalogi/fe0ff0r5-fdd1-5011-1177-d15ac1d1f1ed |
 | `domein`    | The domain of the catalog in field domein of catalogus                                                                            | VTH                                                       |
 
-## Example: get a notification when the case in the VTH domain has closed 
+## Example: get a notification when the case in the VTH domain has closed
 
 ```json
 {
