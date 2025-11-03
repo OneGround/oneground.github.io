@@ -82,7 +82,7 @@ function OneGroundEditions() {
                                     </Link>
                                     <Link
                                         className="button button--outline button--primary button--block"
-                                        href="https://github.com/OneGround/ZGW-APIs"
+                                        href="https://github.com/OneGround/ZGW-APIs/blob/main/getting-started/docker-compose/README.md"
                                         target="_blank"
                                     >
                                         View on GitHub
