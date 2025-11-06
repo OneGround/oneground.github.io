@@ -129,7 +129,7 @@ function OneGroundEditions() {
                                     </Link>
                                 </div>
                             </div>
-                        </div>{" "}
+                        </div>
                     </div>
                 </div>
                 <div className={styles.comparisonNote}>

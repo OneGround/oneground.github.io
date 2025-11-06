@@ -14,11 +14,17 @@ const config: Config = {
     organizationName: "OneGround",
     projectName: "DevPortal",
     onBrokenLinks: "throw",
-    onBrokenMarkdownLinks: "warn",
     trailingSlash: false,
     i18n: {
         defaultLocale: "en",
         locales: ["en"]
+    },
+
+    markdown: {
+        hooks: {
+            onBrokenMarkdownLinks: "warn",
+            onBrokenMarkdownImages: "throw"
+        }
     },
 
     presets: [
