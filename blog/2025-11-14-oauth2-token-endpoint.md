@@ -22,7 +22,7 @@ keywords:
 
 We already have published an [article on JWT best practices](./2024-12-03-best-practices-for-jwt-usage-in-apis.md) that clearly explains the rules for creating safe and reliable JSON Web Tokens. It emphasizes the importance of proper claims like `iss` (Issuer) and `exp` (Expiration), securely managing secrets, and using tokens that do not last long.
 
-This is excellent advice, but it raises a key question: **Who should be in charge of following these rules?**
+But it raises a key question: **Who should be in charge of following these rules?**
 
 A risky pattern in API design is letting customers create their own JWTs. The idea seems simple: "Here's a secret key, Mr. Customer. Just make a JWT using our guidelines, sign it with this secret, and include it in your Authorization header."
 
@@ -30,15 +30,13 @@ This method goes against best practices by making customers take on the difficul
 
 A much better model is to use a standard **OAuth2 Token Endpoint**. Instead of asking your customer to create a token, you let them request one.
 
-Here's why this is a better, safer, and ultimately easier method for everyone involved.
-
 <!-- truncate -->
 
 ## The Problems with "Bring Your Own JWT"
 
-When you allow a customer to create their own JWT, you turn them into an Issuer (`iss`). This means you are relying on them to manage the entire token process safely and correctly. This is often risky, not because customers intend harm, but because creating tokens is complex.
+When you will allow a customer to create their own JWT, you turn them into an Issuer (`iss`). This means you are relying on them to manage the entire token process safely and correctly. This is often risky, not due to any malicious intent from customers, but because generating tokens is a complex process.
 
-Here's how this approach fails, based on best practices:
+This approach fails, based on best practices:
 
 * **Cannot Control Token Expiration:**
 You can suggest a 1-hour expiration, but you cannot enforce it. A developer might "fix" re-authentication issues by setting `exp` to 10 years. This exposes your API to replay attacks and unauthorized access from long-lived tokens. To address this, you would need complex validation checks, which is reactive rather than proactive security.
@@ -54,9 +52,9 @@ Your API must handle validation for tokens from various customer setups, each wi
 
 ## The Secure & Simple Alternative: The OAuth2 Token Endpoint
 
-The OAuth2 framework, especially the **Client Credentials Grant** flow, offers an easy and standard solution.
+The OAuth2 framework, especially with the **Client Credentials Grant** flow, can offer an easy and standard solution.
 
-Here's how it works:
+How it works:
 
 1. **Request:** The customer (client) sends a secure HTTPS POST request to your token endpoint (e.g., `/oauth/token`).
 2. **Credentials:** In this request, they include their `client_id` and `client_secret` that you provided.
@@ -102,7 +100,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...
 
 The customer doesn't worry about JWT structure, signing algorithms, or claim management. They simply exchange credentials for a token and use it.
 
-## Why the Token Endpoint Model is Better
+## So, why the Token Endpoint Model is Better?
 
 This model makes sure that the responsibility for creating tokens stays with you, the API provider. You are the Issuer (`iss`), and you have full control over the process.
 
@@ -135,7 +133,7 @@ By using a standard OAuth2 Token Endpoint, you manage your API's security more e
 
 When tokens expire, customers simply request a new one, no complex refresh logic needed for the Client Credentials flow. This keeps integration straightforward while maintaining strong security.
 
-Stop making your customers handle security. Centralize token creation under your control.
+So, please stop making your customers handle security. Centralize token creation will be kept under your control.
 
 ## References
 
