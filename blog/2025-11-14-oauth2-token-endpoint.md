@@ -139,7 +139,7 @@ By centralizing token creation, we ensure consistent security practices for all 
 
 This approach reflects our dedication to security best practices and our responsibility as your API provider to handle authentication correctly. We believe this model benefits everyone: you get a simpler and more secure integration, and we maintain the high security standards that OneGround is known for.
 
-You can read more about our implementation and how to use the OAuth2 Token Endpoint in our [ClientID Management and JWT Authentication in OneGround](../docs/usage-of-clientids.md) documentation.
+You can read more about our implementation and how to use the OAuth2 Token Endpoint in our [ClientID Management and JWT Authentication in OneGround](../docs/usage-of-clientids) documentation.
 
 ## References
 
