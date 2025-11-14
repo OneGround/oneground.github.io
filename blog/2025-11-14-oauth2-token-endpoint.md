@@ -42,7 +42,7 @@ This approach falls short of best practices in several ways:
 You can suggest a one-hour expiration, but you can't enforce it. A developer might try to "fix" re-authentication issues by setting the `exp` claim to 10 years. This exposes your API to replay attacks and unauthorized access from long-lived tokens. To fix this, you would need to add complex validation checks, which is a reactive security measure, not a proactive one.
 
 * **It Creates Secret Management Issues:**
-You have to share a signing secret with your customers, which makes their secret management your security risk. If they leak the secret—by committing it to code, embedding it in an app, or logging it—attackers could create valid tokens forever, impersonating legitimate clients without being detected.
+You have to share a signing secret with your customers, which makes their secret management your security risk. If they leak the secret, by committing it to code, embedding it in an app, or logging it, attackers could create valid tokens forever, impersonating legitimate clients without being detected.
 
 * **You Have No Control Over Implementation:**
 You can't ensure that customers are using trusted libraries. They might use outdated or insecure libraries or try to create their own JWTs in a way that isn't secure. This exposes you to attacks like the `alg: "none"` vulnerability, where some JWT libraries might accept unsigned tokens. This would allow attackers to create fake tokens by skipping the signature validation.
