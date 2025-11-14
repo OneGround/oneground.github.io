@@ -32,11 +32,13 @@ For consumers of OneGround unlimited there is an endpoint that returns a token:
 ```
 
 The body (multipart/formdata) must contain:
+
 ```
     client_id: <CLIENT_ID>
     client_secret: <CLIENT_SECRET>
     grant_type: client_credentials
 ```
+
 In addition there is a well-known endpoint:
 
 ```
