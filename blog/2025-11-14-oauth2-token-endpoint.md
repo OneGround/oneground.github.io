@@ -36,16 +36,16 @@ When an API provider asks you to create your own JWT, you become the token issue
 
 Here are some of the challenges with this model:
 
-* **Lack of Enforced Token Expiration:**
+- **Lack of Enforced Token Expiration:**
   A critical security practice is to use short-lived tokens. If you were to generate your own tokens, you would be responsible for managing their expiration. While our guidelines might suggest a one-hour expiration, it would be technically possible to create tokens with very long lifetimes, for example, to work around re-authentication logic. Such long-lived tokens would expose your application and our API to security risks, such as replay attacks, if a token is ever compromised. To prevent this, we would need to add complex validation checks on our side, which is a reactive security measure, not a proactive one.
 
-* **It Creates Secret Management Burdens:**
+- **It Creates Secret Management Burdens:**
   To enable you to sign JWTs, we would have to share a signing secret with you. This would place the burden of protecting that secret entirely on you. If the secret were accidentally leaked—for instance, by being committed to a code repository, embedded in a client-side application, or logged in plain text—an attacker could create valid tokens indefinitely. This would pose a significant security threat to your integration and data.
 
-* **You Have No Control Over the Implementation:**
+- **You Have No Control Over the Implementation:**
   To generate JWTs, your developers would need to select and use a library for the language of their choice. This introduces the risk of using outdated or insecure libraries that may contain vulnerabilities. For example, some older JWT libraries were susceptible to the `alg: "none"` vulnerability, where they would accept a token without a signature. This would allow an attacker to forge tokens and bypass security checks entirely.
 
-* **It Increases API Complexity:**
+- **It Increases API Complexity:**
   In a "bring your own JWT" model, our API would need to perform extensive validation on every single request to check for inconsistencies in how different customers implement their token generation. We would have to defensively validate every claim (`iss`, `aud`, `exp`) to ensure they are correctly implemented, adding overhead and complexity.
 
 ## The Secure and Simple Alternative: The OAuth2 Token Endpoint
@@ -82,9 +82,9 @@ grant_type=client_credentials
 
 ```json
 {
-  "access_token": "eyJhbGciOi...",
-  "token_type": "Bearer",
-  "expires_in": 3600
+    "access_token": "eyJhbGciOi...",
+    "token_type": "Bearer",
+    "expires_in": 3600
 }
 ```
 
@@ -102,26 +102,26 @@ With this model, you don't have to worry about the internal structure of the JWT
 
 This model ensures that the responsibility for creating secure tokens remains with us, the API provider. As the issuer (`iss`), we have full control over the security of the token generation process.
 
-* **We Maintain All Best Practices on Your Behalf**
-  * **Token Lifetime:** We set and enforce how long tokens are valid. If we decide they should expire in 15 minutes for security reasons, that is enforced for everyone. You don't have to worry about it.
-  * **Claims:** Because we create the token, we guarantee that all necessary claims (`iss`, `aud`, `exp`) are accurate, present, and standardized.
-  * **Algorithm:** We choose and manage the signing algorithm, such as the industry-standard `RS256`. Your application only needs to use the token, not understand its cryptographic implementation.
+- **We Maintain All Best Practices on Your Behalf**
+    - **Token Lifetime:** We set and enforce how long tokens are valid. If we decide they should expire in 15 minutes for security reasons, that is enforced for everyone. You don't have to worry about it.
+    - **Claims:** Because we create the token, we guarantee that all necessary claims (`iss`, `aud`, `exp`) are accurate, present, and standardized.
+    - **Algorithm:** We choose and manage the signing algorithm, such as the industry-standard `RS256`. Your application only needs to use the token, not understand its cryptographic implementation.
 
-* **Our Private Signing Key Stays Secret**
-  * The `client_secret` we provide you is not a signing key; it functions more like a password for your application to authenticate itself when requesting a token. The risk of a leak is significantly lower:
-    * An attacker with a leaked `client_secret` can only request tokens, not create them. We can detect and rate-limit this activity.
-    * We can quickly revoke a compromised `client_id` or rotate your credentials without affecting the entire system's security.
-    * This is far more secure than a leaked signing key, which would allow an attacker to forge valid tokens undetected.
+- **Our Private Signing Key Stays Secret**
+    - The `client_secret` we provide you is not a signing key; it functions more like a password for your application to authenticate itself when requesting a token. The risk of a leak is significantly lower:
+        - An attacker with a leaked `client_secret` can only request tokens, not create them. We can detect and rate-limit this activity.
+        - We can quickly revoke a compromised `client_id` or rotate your credentials without affecting the entire system's security.
+        - This is far more secure than a leaked signing key, which would allow an attacker to forge valid tokens undetected.
 
-* **It's Easier for Your Developers**
-  * Your developers don't need to research JWT libraries, manage signing keys, or worry about getting security claims right. Their only task is to make a single, standard HTTP `POST` request. This is a common task that any developer can implement in any language without specialized security knowledge.
+- **It's Easier for Your Developers**
+    - Your developers don't need to research JWT libraries, manage signing keys, or worry about getting security claims right. Their only task is to make a single, standard HTTP `POST` request. This is a common task that any developer can implement in any language without specialized security knowledge.
 
-* **You Benefit from Better Security Controls**
-  * **Rate Limiting:** We protect our token endpoint with rate limiting to prevent brute-force attacks on client credentials.
-  * **Token Revocation:** If your credentials are ever compromised, we can revoke your `client_id` immediately, cutting off all future token requests from that ID.
-  * **Scope-Based Access:** We can issue tokens with specific permissions (scopes) based on your client's needs, ensuring your application has only the access it requires (the principle of least privilege).
-  * **Audit Trails:** We maintain logs of all token requests, allowing us to detect suspicious patterns and investigate potential unauthorized access attempts.
-  * **Short-Lived Tokens:** We enforce short token lifetimes (e.g., 15-60 minutes) to minimize the risk if a token is ever intercepted.
+- **You Benefit from Better Security Controls**
+    - **Rate Limiting:** We protect our token endpoint with rate limiting to prevent brute-force attacks on client credentials.
+    - **Token Revocation:** If your credentials are ever compromised, we can revoke your `client_id` immediately, cutting off all future token requests from that ID.
+    - **Scope-Based Access:** We can issue tokens with specific permissions (scopes) based on your client's needs, ensuring your application has only the access it requires (the principle of least privilege).
+    - **Audit Trails:** We maintain logs of all token requests, allowing us to detect suspicious patterns and investigate potential unauthorized access attempts.
+    - **Short-Lived Tokens:** We enforce short token lifetimes (e.g., 15-60 minutes) to minimize the risk if a token is ever intercepted.
 
 ## Conclusion
 
@@ -143,15 +143,15 @@ You can read more about our implementation and how to use the OAuth2 Token Endpo
 
 ## References
 
-* [RFC 6749: The official specification for OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749)
-* [RFC 7519: JSON Web Token (JWT) specification](https://datatracker.ietf.org/doc/html/rfc7519)
-* [RFC 8252: OAuth 2.0 for Native Apps - Best Current Practice](https://datatracker.ietf.org/doc/html/rfc8252)
-* [RFC 6819: OAuth 2.0 Threat Model and Security Considerations](https://datatracker.ietf.org/doc/html/rfc6819)
-* [BCP: OAuth 2.0 Security Best Current Practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics)
-* [OWASP: OAuth 2.0 Protocol Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/OAuth2_Cheat_Sheet.html)
-* [OWASP: JSON Web Token Security Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html)
-* [OWASP: WSTG Testing for OAuth Weaknesses](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/)
-* [auth0.com: Critical vulnerabilities in JSON Web Token libraries](https://auth0.com/blog/critical-vulnerabilities-in-json-web-token-libraries/)
-* [JWT.io: Introduction to JSON Web Tokens: A beginner-friendly guide to understanding JWTs](https://jwt.io/introduction)
-* [oauth.com: OAuth 2.0 Simplified](https://www.oauth.com/)
-* [oauth.com: Client Credentials, OAuth 2.0 Simplified](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
+- [RFC 6749: The official specification for OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749)
+- [RFC 7519: JSON Web Token (JWT) specification](https://datatracker.ietf.org/doc/html/rfc7519)
+- [RFC 8252: OAuth 2.0 for Native Apps - Best Current Practice](https://datatracker.ietf.org/doc/html/rfc8252)
+- [RFC 6819: OAuth 2.0 Threat Model and Security Considerations](https://datatracker.ietf.org/doc/html/rfc6819)
+- [BCP: OAuth 2.0 Security Best Current Practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics)
+- [OWASP: OAuth 2.0 Protocol Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/OAuth2_Cheat_Sheet.html)
+- [OWASP: JSON Web Token Security Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html)
+- [OWASP: WSTG Testing for OAuth Weaknesses](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/)
+- [auth0.com: Critical vulnerabilities in JSON Web Token libraries](https://auth0.com/blog/critical-vulnerabilities-in-json-web-token-libraries/)
+- [JWT.io: Introduction to JSON Web Tokens: A beginner-friendly guide to understanding JWTs](https://jwt.io/introduction)
+- [oauth.com: OAuth 2.0 Simplified](https://www.oauth.com/)
+- [oauth.com: Client Credentials, OAuth 2.0 Simplified](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
