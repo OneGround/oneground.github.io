@@ -24,7 +24,7 @@ This raises an important question: **Who is responsible for implementing these s
 
 In some API designs, customers are asked to generate their own JWTs. The approach is seemingly straightforward: "Here is a secret key. Please create a JWT according to our guidelines, sign it, and include it in your `Authorization` header."
 
-However, this model shifts the complex and critical responsibility of security onto you, the customer. At OneGround, we believe that security should be a shared responsibility, but the burden of token creation should lie with the API provider. This is why we use a standard **OAuth2 Token Endpoint**, which allows you to request a token from us instead of creating one yourself.
+However, this model shifts the complex and critical responsibility of security onto you, the developer of a consumer application. At OneGround, we believe that security should be a shared responsibility, but the burden of token creation should lie with the API provider. This is why we have started using a standard **OAuth2 Token Endpoint**, which allows you to request a token from us instead of creating one yourself.
 
 This article explains why our approach is more secure, reliable, and ultimately simpler for you.
 
@@ -93,7 +93,7 @@ grant_type=client_credentials
 ```http
 GET /api/resources HTTP/1.1
 Host: zgw-api.example.com
-Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...
+Authorization: Bearer eyJhbGciOi...
 ```
 
 With this model, you don't have to worry about the internal structure of the JWT, signing algorithms, or claim management. You simply exchange your credentials for a ready-to-use token.
@@ -107,11 +107,11 @@ This model ensures that the responsibility for creating secure tokens remains wi
     - **Claims:** Because we create the token, we guarantee that all necessary claims (`iss`, `aud`, `exp`) are accurate, present, and standardized.
     - **Algorithm:** We choose and manage the signing algorithm, such as the industry-standard `RS256`. Your application only needs to use the token, not understand its cryptographic implementation.
 
-- **Our Private Signing Key Stays Secret**
-    - The `client_secret` we provide you is not a signing key; it functions more like a password for your application to authenticate itself when requesting a token. The risk of a leak is significantly lower:
+- **Private Signing Key Stays Secret**
+    - The `client_secret` we provide you is not a signing key, it functions more like a password for your application to authenticate itself when requesting a token. The risk of a leak is significantly lower:
         - An attacker with a leaked `client_secret` can only request tokens, not create them. We can detect and rate-limit this activity.
-        - We can quickly revoke a compromised `client_id` or rotate your credentials without affecting the entire system's security.
-        - This is far more secure than a leaked signing key, which would allow an attacker to forge valid tokens undetected.
+        - We can quickly revoke a compromised `client_id` or rotate your credentials without affecting the entire system's security. Revoking a `client_secret` is a straightforward, immediate action.
+        - This is far more secure than a leaked signing key, which would allow an attacker to forge valid tokens undetected. In contrast, rotating a compromised signing key is a complex process that could impact multiple systems and requires careful coordination.
 
 - **It's Easier for Your Developers**
     - Your developers don't need to research JWT libraries, manage signing keys, or worry about getting security claims right. Their only task is to make a single, standard HTTP `POST` request. This is a common task that any developer can implement in any language without specialized security knowledge.
@@ -123,6 +123,16 @@ This model ensures that the responsibility for creating secure tokens remains wi
     - **Audit Trails:** We maintain logs of all token requests, allowing us to detect suspicious patterns and investigate potential unauthorized access attempts.
     - **Short-Lived Tokens:** We enforce short token lifetimes (e.g., 15-60 minutes) to minimize the risk if a token is ever intercepted.
 
+## OneGround's Commitment to Secure Authentication
+
+At OneGround, we are committed to providing the most secure and reliable API experience. That's why we have implemented an OAuth2 Token Endpoint across our platform and we are giving possibility for all our customers to generate tokens through this standardized and secure approach.
+
+By centralizing token creation, we ensure consistent security practices for all our customers, eliminate common vulnerabilities associated with client-side token generation, and simplify the integration process for your development teams. You no longer need to worry about JWT creation, signing algorithms, or claim validation. Instead, you can confidently and easily request a token from our endpoint to access our APIs.
+
+Of course, we understand that this may require some adjustments on each customer application, so we are still supporting legacy integration during this transition period. Additionally, we are expecting that in the future (like ZGW 2.x) self-signed tokens will be deprecated in favor of centralized OAuth2 flows. Our approach not only enhances security today but also ensures your integration remains compliant and robust for years to come.
+
+You can read more about our implementation and how to use the OAuth2 Token Endpoint in our [ClientID Management and JWT Authentication in OneGround](../docs/usage-of-clientids) documentation.
+
 ## Conclusion
 
 JSON Web Tokens are an excellent standard for securely transmitting information in APIs. However, the creation of these tokens is a sensitive security function that should be managed by the API provider, not the customer.
@@ -130,16 +140,6 @@ JSON Web Tokens are an excellent standard for securely transmitting information 
 By using a standard OAuth2 Token Endpoint, we provide a more secure and reliable authentication system. We handle the complexities of token generation, allowing you to focus on building your application. This approach simplifies development, reduces security risks, and ensures that best practices are followed consistently.
 
 When a token expires, your application simply requests a new one. For the Client Credentials flow, this is a straightforward process that does not require complex refresh token logic, keeping your integration simple while maintaining a high level of security.
-
-## OneGround's Commitment to Secure Authentication
-
-At OneGround, we are committed to providing the most secure and reliable API experience. That's why we have implemented an OAuth2 Token Endpoint across our platform and require all customers to generate tokens through this standardized and secure approach.
-
-By centralizing token creation, we ensure consistent security practices for all our customers, eliminate common vulnerabilities associated with client-side token generation, and simplify the integration process for your development teams. You no longer need to worry about JWT creation, signing algorithms, or claim validation. Instead, you can confidently and easily request a token from our endpoint to access our APIs.
-
-This approach reflects our dedication to security best practices and our responsibility as your API provider to handle authentication correctly. We believe this model benefits everyone: you get a simpler and more secure integration, and we maintain the high security standards that OneGround is known for.
-
-You can read more about our implementation and how to use the OAuth2 Token Endpoint in our [ClientID Management and JWT Authentication in OneGround](../docs/usage-of-clientids) documentation.
 
 ## References
 
