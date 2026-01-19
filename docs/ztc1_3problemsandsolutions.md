@@ -1,5 +1,7 @@
 ---
-title: "Problems in and solutions for ZTC 1.3"
+title: "ZTC 1.3 Problems and Solutions"
+description: "A comprehensive list of known issues within the ZTC 1.3 standard and how Roxit components address them."
+keywords: ["ZTC 1.3", "ZGW", "Roxit", "Issues", "Solutions", "Workarounds"]
 ---
 
 # Problems in and solutions for ZTC 1.3

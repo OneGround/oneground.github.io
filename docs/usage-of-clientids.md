@@ -1,16 +1,7 @@
 ---
-title: "ClientID Management and JWT Authentication in OneGround"
-description: "Complete guide to ClientID creation, management, and JWT bearer token authentication for OneGround ZGW APIs. Learn how to obtain credentials, generate tokens, and configure secure API access."
-keywords:
-    - ClientID
-    - JWT authentication
-    - bearer token
-    - OneGround authentication
-    - ZGW API security
-    - API credentials
-    - client configuration
-    - authentication guide
-    - secret management
+title: "Usage of ClientIDs"
+description: "Learn how to obtain or generate JWT bearer tokens using ClientIDs for OneGround APIs in both Community and Unlimited editions."
+keywords: ["ClientID", "JWT", "OneGround", "API", "Authentication", "ZGW"]
 ---
 
 # ClientID's

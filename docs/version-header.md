@@ -1,6 +1,7 @@
 ---
-title: "Version Headers"
-description: "Usage of version headers in OneGround"
+title: "Usage of Version Headers"
+description: "Guidelines and best practices for using the Api-version header in OneGround APIs, including compliance with the API Strategy standard."
+keywords: ["Api-version", "Header", "OneGround", "ZGW", "API Strategy", "Versioning"]
 ---
 
 # Usage of version headers in OneGround

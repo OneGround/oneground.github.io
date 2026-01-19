@@ -1,16 +1,7 @@
 ---
-title: "Authorization Management for ZGW APIs in OneGround"
-description: "Learn how to configure and manage authorizations for ClientIDs in OneGround ZGW APIs. Set up application permissions, authorization profiles, and secure access controls for your ZGW components."
-keywords:
-    - authorization
-    - permissions
-    - ClientID authorization
-    - ZGW security
-    - OneGround access control
-    - application permissions
-    - authorization profiles
-    - API security
-    - access management
+title: "Authorizations"
+description: "Explanation of how authorizations, applications, and Client IDs function within OneGround, including configuration guidelines and tool limitations."
+keywords: ["Authorizations", "OneGround", "ClientID", "Application", "ZGW", "Configuration", "Security"]
 ---
 
 # Authorizations

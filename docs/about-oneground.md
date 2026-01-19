@@ -1,20 +1,7 @@
 ---
-title: "About OneGround - Complete ZGW API Implementation"
-description: "OneGround is a comprehensive implementation of Dutch ZGW APIs for case management (Zaakgericht Werken). Learn about ZRC, DRC, ZTC, BRC, NRC, AC components, features, and how to get started with OneGround."
-keywords:
-    - OneGround
-    - ZGW API
-    - Zaakgericht Werken
-    - Dutch case management
-    - ZRC
-    - DRC
-    - ZTC
-    - BRC
-    - NRC
-    - AC
-    - VNG standards
-    - government APIs
-    - API documentation
+title: "About OneGround"
+description: "Overview of OneGround, a case-oriented API implementation by Roxit, covering its attended and unattended versions, key characteristics, and compliance with ZGW standards."
+keywords: ["OneGround", "Roxit", "ZGW", "API", "Case Oriented", "VNG", "SaaS", "Open Source", "ISO-16175"]
 ---
 
 # About OneGround

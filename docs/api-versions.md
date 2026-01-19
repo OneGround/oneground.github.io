@@ -1,19 +1,7 @@
 ---
-title: "ZGW API Versions Supported by OneGround"
-description: "Complete overview of supported ZGW API versions in OneGround including ZRC, DRC, ZTC, BRC, NRC, and AC. View current, maintenance, and end-of-life versions with release dates and migration timelines."
-keywords:
-    - ZGW API versions
-    - OneGround versions
-    - ZRC versions
-    - DRC versions
-    - ZTC versions
-    - BRC versions
-    - NRC versions
-    - AC versions
-    - API compatibility
-    - version support
-    - migration guide
-hide_table_of_contents: true
+title: "Supported ZGW API Versions"
+description: "A list of supported ZGW API versions (AC, NRC, DRC, ZRC, BRC, ZTC) in OneGround, including their current support status and release dates."
+keywords: ["API Versions", "ZGW", "AC", "NRC", "DRC", "ZRC", "BRC", "ZTC", "Support Status", "Lifecycle"]
 ---
 
 # Supported ZGW API's versions by OneGround
