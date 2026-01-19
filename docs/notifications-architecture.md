@@ -17,7 +17,7 @@ There are four key components to the Notifications system:
 
 ## Polly retries
 
-If a notification cannot be delivered to a client webhook receiver (for example, because the service is temporarily down), a new attempt is made to deliver the notification within a few seconds. Both the interval pattern (linear/exponential) and the number of attempts can be configured. An important aspect of Polly retries is that they are blocking calls; therefore, it is crucial to ensure that the total retry sequence is not too long (e.g., <8 seconds). Another key characteristic is that Polly retries are not persistent (i.e., they take place in memory). A typical Polly retry configuration looks like this:
+If a notification cannot be delivered to a client webhook receiver (for example, because the service is temporarily down), a new attempt is made to deliver the notification within a few seconds. Both the interval pattern (linear/exponential) and the number of attempts can be configured. An important aspect of Polly retries is that they are blocking calls; therefore, it is crucial to ensure that the total retry sequence is not too long (e.g., &lt;8 seconds). Another key characteristic is that Polly retries are not persistent (i.e., they take place in memory). A typical Polly retry configuration looks like this:
 
 ```json
 {
