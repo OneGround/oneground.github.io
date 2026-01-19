@@ -24,9 +24,10 @@ If a notification cannot be delivered to a client webhook receiver (for example,
     "PollyConfig": {
         "NotificatiesSender": {
             "Retry": {
+                "ShouldRetryAfterHeader": true,
                 "MaxRetryAttempts": 4,
                 "BackoffType": "Exponential",
-                "Delay": "00:00:01"
+                "Delay": "00:00:00.500"
             },
             "Timeout": {
                 "Timeout": "00:00:30"
@@ -115,6 +116,7 @@ It's possible to perform a retry on HTTP status codes that aren't supported by P
     "PollyConfig": {
         "NotificatiesSender": {
             "Retry": {
+                "ShouldRetryAfterHeader": true,
                 "MaxRetryAttempts": 4,
                 "BackoffType": "Exponential",
                 "UseJitter": true,
@@ -123,7 +125,7 @@ It's possible to perform a retry on HTTP status codes that aren't supported by P
             "Timeout": {
                 "Timeout": "00:00:30"
             },
-            "AddRetryOnHttpStatusCodes": [404]
+            "AddRetryOnHttpStatusCodes": "404;..."
         }
     }
 }
