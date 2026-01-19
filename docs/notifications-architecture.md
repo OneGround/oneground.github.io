@@ -6,17 +6,18 @@ keywords: [notifications, architecture, polly, hangfire, circuit breaker, retry,
 
 # Notifications
 
-When creating, modifying, or deleting each ZGW entity, a notification is sent. Clients (client apps) can subscribe to these notifications. This requires a client (client app) webhook receiver to which the notifications can be delivered. The URL (and authentication) of this webhook receiver is stored in the client's subscription in our Notifications database.
+When a ZGW entity is created, modified, or deleted, a notification is sent. Client applications can subscribe to these notifications. This requires a webhook receiver on the client side to which the notifications can be delivered. The URL (and authentication) of this webhook receiver is stored in the client's subscription in our Notifications database.
+
 There are four key components to the Notifications system:
 
 1. Polly retries
 2. Hangfire retries and priority queue
 3. Circuit breaker
-4. Http codes that lead to retries
+4. HTTP status codes that lead to retries
 
 ## Polly retries
 
-If a notification cannot be delivered to a client webhook receiver, for example, because the service is (temporarily) down, a new attempt will be made to deliver the notification within a few seconds. Both the interval pattern (linear/exponential) and the number of attempts can be configured. An important aspect of Polly retry is that it is a blocking call, so it is important to ensure that the total retry sequence is not too long (<8 seconds). Another important aspect of Polly retry is that retries are not persistent (i.e., they take place in memory). A typical Polly retry looks like this:
+If a notification cannot be delivered to a client webhook receiver (for example, because the service is temporarily down), a new attempt is made to deliver the notification within a few seconds. Both the interval pattern (linear/exponential) and the number of attempts can be configured. An important aspect of Polly retries is that they are blocking calls; therefore, it is crucial to ensure that the total retry sequence is not too long (e.g., <8 seconds). Another key characteristic is that Polly retries are not persistent (i.e., they take place in memory). A typical Polly retry configuration looks like this:
 
 ```json
 {
@@ -37,9 +38,9 @@ If a notification cannot be delivered to a client webhook receiver, for example,
 
 ## Hangfire retries and priority queue
 
-The second level of retries is based on the Hangfire Scheduler. It's possible that the client webhook receiver is down for an extended period. In this case, the Polly retry won't work. The Hangfire retry offers a solution because retries are scheduled and picked up and processed at a (much) later time, for example, after four hours or even after several days. Unlike Polly retries, Hangfire retries are persistent (stored as jobs in the Notification database). Hangfire retries use two queues: the MAIN and RETRY queues. New notifications are placed in the MAIN queue, while scheduled retries are placed in the RETRY queue. This prevents new notifications from having to wait until all retries have been processed, as only a limited number of jobs can be executed. More importantly, the retry period can be long, for example, one day.
+The second level of retries is based on the Hangfire Scheduler. It is possible that the client webhook receiver is down for an extended period. In this case, the Polly retry will not work. Hangfire retries offer a solution by scheduling retries to be processed at a later time—for example, after four hours or even several days. Unlike Polly retries, Hangfire retries are persistent (stored as jobs in the Notifications database). Hangfire retries use two queues: the MAIN and RETRY queues. New notifications are placed in the MAIN queue, while scheduled retries are placed in the RETRY queue. This prevents new notifications from waiting until all retries have been processed, as only a limited number of jobs can be executed continuously. More importantly, the retry period can be extended (e.g., up to one day).
 
-After the last failed retry, Hangfire will move the retry(job) to Failed Jobs.
+After the last failed retry, Hangfire moves the retry job to the 'Failed Jobs' state.
 
 A nice feature is that Hangfire includes a Dashboard that displays all jobs (Retry Jobs, Successfully Executed Jobs, Failed Jobs, and Deleted Jobs). Failed jobs can even be restarted manually.
 
@@ -70,9 +71,11 @@ There are two other settings intended for automatically cleaning up failed retry
 
 ## Circuit breaker
 
-Another component of the notification system is the circuit breaker. The circuit breaker prevents unresponsive (or faulty) webhook receivers from repeatedly reporting an error over a period of time. This can severely and unnecessarily block the system (think of unnecessary timeouts). The idea is that a webhook receiver is only allowed to fail a limited number of times. If a webhook receiver fails, it is MONITORED, and the number of failures is recorded. For example, after 10 failures, the webhook receiver is marked as BLOCKED (and therefore no longer MONITORED). The circuit breaker maintains this block for a specified period, for example, 5 minutes. After this, it tries to deliver the notification again. If the receiver fails again (maximum 10 times), the block occurs again. This mechanism prevents unnecessary calls to unresponsive webhook receivers, which helps improve system performance.
+Another component of the notification system is the circuit breaker. This prevents the system from repeatedly attempting to contact unresponsive (or faulty) webhook receivers over a period of time, which can severely and unnecessarily block resources (due to timeouts).
 
-All webhook receiver blocks will be automatically released after a certain period of time (unless called within this time).
+The concept is that a webhook receiver is only allowed to fail a limited number of times. When calls to a webhook receiver fail, the failures are monitored and recorded. For example, after 10 failures, the webhook receiver is marked as BLOCKED (and effectively no longer monitored). The circuit breaker maintains this block for a specified period (e.g., 5 minutes). After this period, it attempts to deliver the notification again. If the receiver fails again, the block is reapplied. This mechanism prevents unnecessary calls to unresponsive webhook receivers, improving system performance.
+
+All webhook receiver blocks are automatically released after a specified period unless triggered again.
 
 A typical Circuit breaker configuration looks like this:
 
@@ -92,16 +95,16 @@ The possible settings under CircuitBreaker are:
 - BreakDuration (time of the BLOCKADE)
 - CacheExpirationMinutes (time that MONITORING and BLOCKS are lifted unless called)
 
-## Http codes that lead to retries
+## HTTP status codes triggering retries
 
 ### Polly retry
 
 Polly will perform retries according to the configured policy for the following HTTP status codes:
 
-- HttpRequestException
+- `HttpRequestException`
 - All HTTP 5xx codes
 - 408 Request Timeout
-- 429 TooManyRequests
+- 429 Too Many Requests
 
 With the other HTTP status codes, the error is returned immediately.
 
