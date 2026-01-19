@@ -1,5 +1,7 @@
 ---
-title: "Example document upload"
+title: "Example Document Upload"
+description: "Step-by-step guide and Postman example for uploading documents in parts (bestandsdelen) to the DRC API in OneGround."
+keywords: ["Document Upload", "DRC", "ZGW", "OneGround", "File Parts", "Bestandsdelen", "Postman", "API"]
 ---
 
 Attached is an example [Postman project](./examplepm.json) with a sequence for document upload in parts (bestandsdelen).
