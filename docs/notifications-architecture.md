@@ -38,6 +38,13 @@ If a notification cannot be delivered to a client webhook receiver (for example,
 }
 ```
 
+The Polly retries are performed at the following times:
+
+- 500 msec.
+- 1 sec.
+- 2 sec.
+- 4 sec.
+
 ## Hangfire retries and priority queue
 
 The second level of retries is based on the Hangfire Scheduler. It is possible that the client webhook receiver is down for an extended period. In this case, the Polly retry will not work. Hangfire retries offer a solution by scheduling retries to be processed at a later time—for example, after four hours or even several days. Unlike Polly retries, Hangfire retries are persistent (stored as jobs in the Notifications database). Hangfire retries use two queues: the MAIN and RETRY queues. New notifications are placed in the MAIN queue, while scheduled retries are placed in the RETRY queue. This prevents new notifications from waiting until all retries have been processed, as only a limited number of jobs can be executed continuously. More importantly, the retry period can be extended (e.g., up to one day).
