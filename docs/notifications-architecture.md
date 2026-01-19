@@ -27,6 +27,7 @@ If a notification cannot be delivered to a client webhook receiver (for example,
                 "ShouldRetryAfterHeader": true,
                 "MaxRetryAttempts": 4,
                 "BackoffType": "Exponential",
+                "UseJitter": false,
                 "Delay": "00:00:00.500"
             },
             "Timeout": {
@@ -120,7 +121,7 @@ It's possible to perform a retry on HTTP status codes that aren't supported by P
                 "MaxRetryAttempts": 4,
                 "BackoffType": "Exponential",
                 "UseJitter": true,
-                "Delay": "00:00:00.250"
+                "Delay": "00:00:00.500"
             },
             "Timeout": {
                 "Timeout": "00:00:30"
