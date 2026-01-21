@@ -48,9 +48,10 @@ The most important columns are:
 1. id: PrimaryKey of table 'filtervalues'
 2. abonnement_kanaal_id: foreign key to 'abonnementkanalen' table
 3. key: the name of the filter. Possible values are shown in the table 'kanalen' in column 'filters'. Additionally, the values '#resource' and '#actie' are possible in the key field. These refer to the events that trigger the notification to be sent by the resource of the kanaal.
-4. value: the value of the filter to be matched. 
- 
+4. value: the value of the filter to be matched.
+
 For example, a filter-value definition for the 'zaken' kanaal could look like this:
+
 - key='domein'
 - value='VTH'
 
@@ -65,15 +66,18 @@ Filter A:
 - value='zaakinformatieobject'
 
 Filter B:
+
 - key='#actie'
 - value='create'
 
 Abonnementkanalen 2 of abonnement X
 Filter A:
+
 - key='#resource'
 - value='zaakinformatieobject'
 
 Filter B:
+
 - key='#actie'
 - value='destroy'
 
