@@ -8,6 +8,11 @@ const sidebars: SidebarsConfig = {
         "authorizations",
         {
             type: "doc",
+            id: "nrc-db-subscriptions",
+            label: "Notification database tables for subscriptions"
+        },
+        {
+            type: "doc",
             id: "gebruik-van-subscriptions-in-autorisaties",
             label: "Use of Subscriptions for Notifications"
         },
