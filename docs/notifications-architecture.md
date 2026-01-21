@@ -1,10 +1,10 @@
 ---
-title: "Notifications Architecture"
+title: "How does the retry system for notitifations work?"
 description: "Overview of the Notifications system architecture, detailing retry strategies with Polly and Hangfire, circuit breaker patterns, and HTTP status code handling."
 keywords: [notifications, architecture, polly, hangfire, circuit breaker, retry, webhook, OneGround, ZGW]
 ---
 
-# Notifications
+# How does the retry system for notifications work?
 
 When a ZGW entity is created, modified, or deleted, a notification is sent. Client applications can subscribe to these notifications. This requires a webhook receiver on the client side to which the notifications can be delivered. The URL (and authentication) of this webhook receiver is stored in the client's subscription in our Notifications database.
 
@@ -47,7 +47,7 @@ The Polly retries are performed at the following times:
 
 ## Hangfire retries and priority queue
 
-The second level of retries is based on the Hangfire Scheduler. It is possible that the client webhook receiver is down for an extended period. In this case, the Polly retry will not work. Hangfire retries offer a solution by scheduling retries to be processed at a later time—for example, after four hours or even several days. Unlike Polly retries, Hangfire retries are persistent (stored as jobs in the Notifications database). Hangfire retries use two queues: the MAIN and RETRY queues. New notifications are placed in the MAIN queue, while scheduled retries are placed in the RETRY queue. This prevents new notifications from waiting until all retries have been processed, as only a limited number of jobs can be executed continuously. More importantly, the retry period can be extended (e.g., up to one day).
+The second level of retries is based on the Hangfire Scheduler. It is possible that the client webhook receiver is down for an extended period. In this case, the Polly retry will not work. Hangfire retries offer a solution by scheduling retries to be processed at a later time, for example, after four hours or even several days. Unlike Polly retries, Hangfire retries are persistent (stored as jobs in the Notifications database). Hangfire retries use two queues: the MAIN and RETRY queues. New notifications are placed in the MAIN queue, while scheduled retries are placed in the RETRY queue. This prevents new notifications from waiting until all retries have been processed, as only a limited number of jobs can be executed continuously. More importantly, the retry period can be extended (e.g., up to one day).
 
 After the last failed retry, Hangfire moves the retry job to the 'Failed Jobs' state.
 
@@ -115,9 +115,9 @@ Polly will perform retries according to the configured policy for the following 
 - 408 Request Timeout
 - 429 Too Many Requests
 
-With the other HTTP status codes, the error is returned immediately.
+When other HTTP status codes are returned, Polly stops immediately (but Hangfire will retry).
 
-It's possible to perform a retry on HTTP status codes that aren't supported by Polly. This can be done using the AddRetryOnHttpStatusCodes setting directly under PollyConfig. Multiple codes are supported. So, if you want to perform a retry on a NotFound (404) error, you can configure this with the following line:
+It's possible to configure retries on additional HTTP status codes. This can be done using the AddRetryOnHttpStatusCodes setting directly under PollyConfig. If, for example, you want to retry always on unauthorized (401) errors, you can configure this with the following line:
 
 ```json
 {
@@ -141,4 +141,4 @@ It's possible to perform a retry on HTTP status codes that aren't supported by P
 
 ### Hangfire retry
 
-Hangfire retry makes no distinction and will always perform a retry.
+The hangfire retry jobs make no distinction between different response codes and will always perform a retry.

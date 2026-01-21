@@ -11,6 +11,11 @@ const sidebars: SidebarsConfig = {
             id: "gebruik-van-subscriptions-in-autorisaties",
             label: "Use of Subscriptions for Notifications"
         },
+        {
+            type: "doc",
+            id: "notifications-architecture",
+            label: "How does the retry system for notitifations work?"
+        },
         "version-header",
         "example-document-upload/example-document-upload",
         "ztc1_3problemsandsolutions"
