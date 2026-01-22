@@ -2,16 +2,69 @@ import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
 const sidebars: SidebarsConfig = {
     docs: [
-        "about-oneground",
-        "api-versions",
-        "usage-of-clientids",
-        "authorizations",
+        {
+            type: "doc",
+            id: "about-oneground",
+            label: "About OneGround"
+        },
         {
             type: "category",
-            label: "Notifications",
+            label: "General",
+            collapsed: false,
+            items: [
+                {
+                    type: "doc",
+                    id: "general/authentication",
+                    label: "Authentication"
+                },
+                {
+                    type: "doc",
+                    id: "general/api-versions",
+                    label: "Supported API Versions"
+                },
+                {
+                    type: "doc",
+                    id: "general/version-header",
+                    label: "Version Headers"
+                }
+            ]
+        },
+        {
+            type: "category",
+            label: "Authorization (AC)",
             link: {
-                type: 'doc',
-                id: 'notifications/nrc-introduction'
+                type: "doc",
+                id: "authorization/ac-introduction"
+            },
+            items: [
+                {
+                    type: "doc",
+                    id: "authorization/ac-configuration",
+                    label: "Configuration & Tooling"
+                }
+            ]
+        },
+        {
+            type: "category",
+            label: "Catalogs (ZTC)",
+            link: {
+                type: "doc",
+                id: "catalogs/ztc-introduction"
+            },
+            items: [
+                {
+                    type: "doc",
+                    id: "catalogs/ztc1_3problemsandsolutions",
+                    label: "ZTC 1.3 Compliance"
+                }
+            ]
+        },
+        {
+            type: "category",
+            label: "Notifications (NRC)",
+            link: {
+                type: "doc",
+                id: "notifications/nrc-introduction"
             },
             items: [
                 {
@@ -31,9 +84,21 @@ const sidebars: SidebarsConfig = {
                 }
             ]
         },
-        "version-header",
-        "example-document-upload/example-document-upload",
-        "ztc1_3problemsandsolutions"
+        {
+            type: "category",
+            label: "Documents (DRC)",
+            link: {
+                type: "doc",
+                id: "documents/drc-introduction"
+            },
+            items: [
+                {
+                    type: "doc",
+                    id: "documents/example-document-upload",
+                    label: "Document Upload Guide"
+                }
+            ]
+        }
     ]
 };
 

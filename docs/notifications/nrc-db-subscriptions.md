@@ -21,12 +21,12 @@ This document outlines the subscription data model within the NRC database.
 
 The `kanalen` table represents the source of notifications (e.g., 'zaken' or 'besluiten' in the ZRC).
 
-| Column | Description |
-| :--- | :--- |
-| **`id`** | **Primary Key.** Unique identifier for the kanaal. |
-| **`naam`** | The name of the channel (e.g., `zaken`, `besluiten`). |
-| **`documentatielink`** | URL pointing to the documentation for this specific channel. |
-| **`filters`** | A list of available attributes that can be used to filter subscriptions for this channel. |
+| Column                 | Description                                                                               |
+| :--------------------- | :---------------------------------------------------------------------------------------- |
+| **`id`**               | **Primary Key.** Unique identifier for the kanaal.                                        |
+| **`naam`**             | The name of the channel (e.g., `zaken`, `besluiten`).                                     |
+| **`documentatielink`** | URL pointing to the documentation for this specific channel.                              |
+| **`filters`**          | A list of available attributes that can be used to filter subscriptions for this channel. |
 
 ---
 
@@ -36,12 +36,12 @@ The `kanalen` table represents the source of notifications (e.g., 'zaken' or 'be
 
 The `abonnementen` table stores the actual subscriptions for ZGW notifications received via POST requests.
 
-| Column | Description |
-| :--- | :--- |
-| **`id`** | **Primary Key.** Unique identifier for the subscription. |
+| Column            | Description                                                                  |
+| :---------------- | :--------------------------------------------------------------------------- |
+| **`id`**          | **Primary Key.** Unique identifier for the subscription.                     |
 | **`callbackurl`** | The full webhook URL of the application where the notification must be sent. |
-| **`auth`** | The bearer token required by the webhook receiver for authorization. |
-| **`owner`** | The RSIN of the organization granting access to the application. |
+| **`auth`**        | The bearer token required by the webhook receiver for authorization.         |
+| **`owner`**       | The RSIN of the organization granting access to the application.             |
 
 ---
 
@@ -51,13 +51,13 @@ The `abonnementen` table stores the actual subscriptions for ZGW notifications r
 
 This table establishes an **N:M (Many-to-Many)** relationship between `abonnementen` and `kanalen`.
 
-> **Key Concept:** The Primary Key (`id`) of this table is referenced by the `filtervalues` table. This architecture allows a single subscription to link to the *same* `kanaal` multiple times. While this looks like duplicate data, it allows different sets of `filtervalues` to be applied to the same channel within one subscription.
+> **Key Concept:** The Primary Key (`id`) of this table is referenced by the `filtervalues` table. This architecture allows a single subscription to link to the _same_ `kanaal` multiple times. While this looks like duplicate data, it allows different sets of `filtervalues` to be applied to the same channel within one subscription.
 
-| Column | Description |
-| :--- | :--- |
-| **`id`** | **Primary Key.** Referenced by `filtervalues`. |
+| Column              | Description                                                           |
+| :------------------ | :-------------------------------------------------------------------- |
+| **`id`**            | **Primary Key.** Referenced by `filtervalues`.                        |
 | **`abonnement_id`** | **Foreign Key.** Points to the parent subscription in `abonnementen`. |
-| **`kanaal_id`** | **Foreign Key.** Points to the source channel in `kanalen`. |
+| **`kanaal_id`**     | **Foreign Key.** Points to the source channel in `kanalen`.           |
 
 ---
 
@@ -67,21 +67,21 @@ This table establishes an **N:M (Many-to-Many)** relationship between `abonnemen
 
 To prevent message flooding, subscriptions often restrict which notifications they receive. The `filtervalues` table stores these restrictions.
 
-| Column | Description |
-| :--- | :--- |
-| **`id`** | **Primary Key.** |
-| **`abonnement_kanaal_id`** | **Foreign Key.** Links to the `abonnementkanalen` table. |
-| **`key`** | The filter name. Valid values are listed in `kanalen.filters`. <br /> Special values include:<br />• `#resource`: The resource triggering the event.<br />• `#actie`: The event type (e.g., create, destroy). |
-| **`value`** | The specific value to match against. |
+| Column                     | Description                                                                                                                                                                                                   |
+| :------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **`id`**                   | **Primary Key.**                                                                                                                                                                                              |
+| **`abonnement_kanaal_id`** | **Foreign Key.** Links to the `abonnementkanalen` table.                                                                                                                                                      |
+| **`key`**                  | The filter name. Valid values are listed in `kanalen.filters`. <br /> Special values include:<br />• `#resource`: The resource triggering the event.<br />• `#actie`: The event type (e.g., create, destroy). |
+| **`value`**                | The specific value to match against.                                                                                                                                                                          |
 
 ### Example Usage
 
 If you want to filter for a specific domain, the definition for the **zaken** channel might look like this:
 
-* **Key:** `domein`
-* **Value:** `VTH`
+- **Key:** `domein`
+- **Value:** `VTH`
 
-*Result: The notification is delivered only if the 'zaak' belongs to a 'zaaktype' within the 'VTH' domain.*
+_Result: The notification is delivered only if the 'zaak' belongs to a 'zaaktype' within the 'VTH' domain._
 
 ---
 
@@ -96,19 +96,19 @@ The data model supports complex filtering logic by combining multiple `filterval
 
 ### Scenario: "Create OR Delete"
 
-A client application wants to receive notifications from the `zaken` channel *only* when a `zaakinformatieobject` is **created** OR **deleted**.
+A client application wants to receive notifications from the `zaken` channel _only_ when a `zaakinformatieobject` is **created** OR **deleted**.
 
 **Abonnementkanalen ID: 1** (The "Create" Condition)
 
-* Filter A: `key='#resource'`, `value='zaakinformatieobject'`
-* Filter B: `key='#actie'`, `value='create'`
-* *Logic: Resource is object **AND** action is create.*
+- Filter A: `key='#resource'`, `value='zaakinformatieobject'`
+- Filter B: `key='#actie'`, `value='create'`
+- _Logic: Resource is object **AND** action is create._
 
 **Abonnementkanalen ID: 2** (The "Delete" Condition)
 
-* Filter A: `key='#resource'`, `value='zaakinformatieobject'`
-* Filter B: `key='#actie'`, `value='destroy'`
-* *Logic: Resource is object **AND** action is destroy.*
+- Filter A: `key='#resource'`, `value='zaakinformatieobject'`
+- Filter B: `key='#actie'`, `value='destroy'`
+- _Logic: Resource is object **AND** action is destroy._
 
 **Final Result:**
 If (Object created) **OR** (Object destroyed) then **Send Notification**.

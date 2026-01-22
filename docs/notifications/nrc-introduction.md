@@ -29,24 +29,24 @@ To receive notifications, your application needs to:
 
 We have detailed guides to help you integrate with the Notifications system:
 
-* **[Usage Guide](./nrc-subscriptions-use)**: Learn how to create subscriptions and filter messages for specific channels like Zaken or Documenten.
-* **[Data Models](./nrc-db-subscriptions)**: Understand the underlying database structure for subscriptions if you need deep insight into how channels and filters are stored.
-* **[Retries & Reliability](./nrc-retry-architecture)**: Information on how the system ensures delivery, including retry policies (Polly, Hangfire) and circuit breakers.
+- **[Usage Guide](./nrc-subscriptions-use)**: Learn how to create subscriptions and filter messages for specific channels like Zaken or Documenten.
+- **[Data Models](./nrc-db-subscriptions)**: Understand the underlying database structure for subscriptions if you need deep insight into how channels and filters are stored.
+- **[Retries & Reliability](./nrc-retry-architecture)**: Information on how the system ensures delivery, including retry policies (Polly, Hangfire) and circuit breakers.
 
 ## Key Concepts
 
-* **Kanaal (Channel)**: Represents a stream of messages, usually tied to a specific resource type (e.g., 'zaken', 'documenten').
-* **Abonnement (Subscription)**: The registration that links a receiving application (via a callback URL) to a channel and set of filters.
-* **Notificatie**: The actual message payload describing the event.
+- **Kanaal (Channel)**: Represents a stream of messages, usually tied to a specific resource type (e.g., 'zaken', 'documenten').
+- **Abonnement (Subscription)**: The registration that links a receiving application (via a callback URL) to a channel and set of filters.
+- **Notificatie**: The actual message payload describing the event.
 
 ## Official Standards (VNG)
 
 The OneGround Notifications system is implemented according to the standards defined by VNG Realisatie. While this documentation covers the specific implementation and usage within OneGround, the official standards provide the complete specification:
 
-* **[VNG Notificaties Standard](https://vng-realisatie.github.io/gemma-zaken/standaard/notificaties/)**  
-    The core specification for the Notifications API (Notificaties services). It defines the resources, behavior, and architecture of the notification system.
+- **[VNG Notificaties Standard](https://vng-realisatie.github.io/gemma-zaken/standaard/notificaties/)**  
+   The core specification for the Notifications API (Notificaties services). It defines the resources, behavior, and architecture of the notification system.
 
-* **[VNG Notificaties Consumer Guide](https://vng-realisatie.github.io/gemma-zaken/standaard/notificaties-consumer/)**  
-    A guide specifically for "consumers" — applications that subscribe to and receive notifications. This resource provides sequence diagrams and rules for handling notifications correctly.
+- **[VNG Notificaties Consumer Guide](https://vng-realisatie.github.io/gemma-zaken/standaard/notificaties-consumer/)**  
+   A guide specifically for "consumers" — applications that subscribe to and receive notifications. This resource provides sequence diagrams and rules for handling notifications correctly.
 
 For further technical details, please refer to the specific pages in this section.

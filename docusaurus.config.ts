@@ -248,32 +248,37 @@ const config: Config = {
                         to: "/changelog"
                     },
                     {
-                        from: ["/About/ApiVersions.html", "/About/ApiVersions"],
-                        to: "/docs/api-versions"
+                        from: ["/About/ApiVersions.html", "/About/ApiVersions", "/docs/api-versions"],
+                        to: "/docs/general/api-versions"
                     },
                     {
-                        from: ["/About/ClientID.html", "/About/ClientID"],
-                        to: "/docs/usage-of-clientids"
+                        from: ["/About/ClientID.html", "/About/ClientID", "/docs/usage-of-clientids"],
+                        to: "/docs/general/authentication"
                     },
                     {
-                        from: ["/About/Authorisation.html", "/About/Authorisation"],
-                        to: "/docs/authorizations"
+                        from: ["/About/Authorisation.html", "/About/Authorisation", "/docs/authorizations"],
+                        to: "/docs/authorization/introduction"
                     },
                     {
-                        from: ["/About/VersionHeader.html", "/About/VersionHeader"],
-                        to: "/docs/version-header"
+                        from: ["/About/VersionHeader.html", "/About/VersionHeader", "/docs/version-header"],
+                        to: "/docs/general/version-header"
                     },
                     {
                         from: [
                             "/About/exampledocumentupload.html",
                             "/About/exampledocumentupload",
-                            "/About/example-document-upload/examplepm.json"
+                            "/About/example-document-upload/examplepm.json",
+                            "/docs/example-document-upload",
                         ],
-                        to: "/docs/example-document-upload"
+                        to: "/docs/documents/example-document-upload"
                     },
                     {
-                        from: ["/About/ztc1_3problemsandsolutions.html", "/About/ztc1_3problemsandsolutions"],
-                        to: "/docs/ztc1_3problemsandsolutions"
+                        from: [
+                            "/About/ztc1_3problemsandsolutions.html",
+                            "/About/ztc1_3problemsandsolutions",
+                            "/docs/ztc1_3problemsandsolutions"
+                        ],
+                        to: "/docs/catalogs/ztc1_3problemsandsolutions"
                     },
                     {
                         from: [
@@ -281,6 +286,12 @@ const config: Config = {
                             "/About/Articles/20241203_Best-Practices-for-JWT-Usage-in-APIs.html"
                         ],
                         to: "/blog/best-practices-for-jwt-usage-in-apis"
+                    },
+                    {
+                        from: [
+                            "/docs/gebruik-van-subscriptions-in-autorisaties"
+                        ],
+                        to: "/docs/notifications/notification-subscription-usage-guide"
                     }
                 ]
             }

@@ -59,7 +59,7 @@ The pattern described here is already implemented and used in production setting
 
 #### Authentication on the ZGW requests
 
-The requests to the ZGW components use the standard authentication for the ZGW API: a JWT generated based on a ClientId and secret. See the [OneGround documentation](/docs/usage-of-clientids) or the general [ZGW documentation](https://vng-realisatie.github.io/gemma-zaken/themas/achtergronddocumentatie/authenticatie-autorisatie) for details.
+The requests to the ZGW components use the standard authentication for the ZGW API: a JWT generated based on a ClientId and secret. See the [OneGround documentation](/docs/general/authentication) or the general [ZGW documentation](https://vng-realisatie.github.io/gemma-zaken/themas/achtergronddocumentatie/authenticatie-autorisatie) for details.
 
 #### Authentication on the trigger message
 
@@ -73,7 +73,7 @@ Before the documents are presented to the signer, this person should authenticat
 
 To initiate the signing process, the TSA or ZAC should post a trigger message to the signing software in this format:
 
-```
+```javascript
 {
     "naam": "...", // Name of signing transaction, can be displayed to the signer(s) by the signing software
     "eigenaar": "lisa@breda.dev", // e-mail of user that initiates the signing transaction
@@ -121,7 +121,7 @@ Some details about properties that might not be clear from the description:
 
 If the trigger message is received correctly, the signing software should respond with status code 200 and this message:
 
-```
+```jsonc
 {
     "transaction_id": "2opbDxqSB8BX3137ulqdw2q9_Mw=" // unique id of this signing transaction; format to be determined by the signing software
 }
@@ -135,7 +135,7 @@ Note that signing documents is a very asynchronous sequence: it might be several
 
 When signing is completed successfully, the request to the NRC should be:
 
-```
+```javascript
 {
     "kanaal": "documentacties",
     "hoofdObject": ""$url"", // ZRC url of the case
@@ -151,7 +151,7 @@ When signing is completed successfully, the request to the NRC should be:
 
 When signing has failed, is cancelled or has otherwise not completed successfully, the request to the NRC should be:
 
-```
+```javascript
 {
     "kanaal": "documentacties",
     "hoofdObject": ""$url"", // ZRC url of the case
