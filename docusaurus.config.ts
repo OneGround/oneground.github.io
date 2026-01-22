@@ -240,6 +240,10 @@ const config: Config = {
                 // Redirects for the old website
                 redirects: [
                     {
+                        from: "/docs",
+                        to: "/docs/about-oneground"
+                    },
+                    {
                         from: "/About",
                         to: "/"
                     },
