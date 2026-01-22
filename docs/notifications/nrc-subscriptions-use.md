@@ -2,6 +2,7 @@
 title: "Use of Subscriptions for Notifications"
 description: "A comprehensive guide on creating and managing subscriptions for ZGW API notifications, detailing filter options for various channels like Zaken, Besluiten, and Documenten."
 keywords: [subscriptions, notifications, filters, ZGW, API, webhooks, callbacks, Zaken, Besluiten, Documenten, OneGround, Roxit]
+slug: /notifications/notification-subscription-usage-guide
 ---
 
 # Use of Subscriptions for Notifications

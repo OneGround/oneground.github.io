@@ -131,7 +131,7 @@ By centralizing token creation, we ensure consistent security practices for all 
 
 Of course, we understand that this may require some adjustments on each customer application, so we are still supporting legacy integration during this transition period. Additionally, we are expecting that in the future (like ZGW 2.x) self-signed tokens will be deprecated in favor of centralized OAuth2 flows. Our approach not only enhances security today but also ensures your integration remains compliant and robust for years to come.
 
-You can read more about our implementation and how to use the OAuth2 Token Endpoint in our [ClientID Management and JWT Authentication in OneGround](../docs/usage-of-clientids) documentation.
+You can read more about our implementation and how to use the OAuth2 Token Endpoint in our [ClientID Management and JWT Authentication in OneGround](../docs/general/authentication) documentation.
 
 ## Conclusion
 
