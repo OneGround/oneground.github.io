@@ -7,28 +7,33 @@ const sidebars: SidebarsConfig = {
         "usage-of-clientids",
         "authorizations",
         {
-            type: "doc",
-            id: "nrc-db-subscriptions",
-            label: "Notification database tables for subscriptions"
-        },
-        {
-            type: "doc",
-            id: "gebruik-van-subscriptions-in-autorisaties",
-            label: "Use of Subscriptions for Notifications"
-        },
-        {
-            type: "doc",
-            id: "notifications-architecture",
-            label: "How does the retry system for notitifations work?"
+            type: "category",
+            label: "Notifications",
+            link: {
+                type: 'doc',
+                id: 'notifications/nrc-introduction'
+            },
+            items: [
+                {
+                    type: "doc",
+                    id: "notifications/nrc-subscriptions-use",
+                    label: "Usage Guide"
+                },
+                {
+                    type: "doc",
+                    id: "notifications/nrc-db-subscriptions",
+                    label: "Data Models"
+                },
+                {
+                    type: "doc",
+                    id: "notifications/nrc-retry-architecture",
+                    label: "Retries & Reliability"
+                }
+            ]
         },
         "version-header",
         "example-document-upload/example-document-upload",
         "ztc1_3problemsandsolutions"
-        // {
-        //   type: 'category',
-        //   label: 'Category',
-        //   items: ['usage-of-clientids'],
-        // },
     ]
 };
 

@@ -2,6 +2,7 @@
 title: "How does the retry system for notitifations work?"
 description: "Overview of the Notifications system architecture, detailing retry strategies with Polly and Hangfire, circuit breaker patterns, and HTTP status code handling."
 keywords: [notifications, architecture, polly, hangfire, circuit breaker, retry, webhook, OneGround, ZGW]
+slug: /notifications/notification-retry-architecture
 ---
 
 # How does the retry system for notifications work?
