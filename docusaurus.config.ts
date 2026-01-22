@@ -268,7 +268,7 @@ const config: Config = {
                             "/About/exampledocumentupload.html",
                             "/About/exampledocumentupload",
                             "/About/example-document-upload/examplepm.json",
-                            "/docs/example-document-upload",
+                            "/docs/example-document-upload"
                         ],
                         to: "/docs/documents/example-document-upload"
                     },
@@ -288,9 +288,7 @@ const config: Config = {
                         to: "/blog/best-practices-for-jwt-usage-in-apis"
                     },
                     {
-                        from: [
-                            "/docs/gebruik-van-subscriptions-in-autorisaties"
-                        ],
+                        from: ["/docs/gebruik-van-subscriptions-in-autorisaties"],
                         to: "/docs/notifications/notification-subscription-usage-guide"
                     }
                 ]
