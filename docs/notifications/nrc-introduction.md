@@ -29,9 +29,9 @@ To receive notifications, your application needs to:
 
 We have detailed guides to help you integrate with the Notifications system:
 
-- **[Usage Guide](./nrc-subscriptions-use)**: Learn how to create subscriptions and filter messages for specific channels like Zaken or Documenten.
-- **[Data Models](./nrc-db-subscriptions)**: Understand the underlying database structure for subscriptions if you need deep insight into how channels and filters are stored.
-- **[Retries & Reliability](./nrc-retry-architecture)**: Information on how the system ensures delivery, including retry policies (Polly, Hangfire) and circuit breakers.
+- **[Usage Guide](./nrc-subscriptions-use.md)**: Learn how to create subscriptions and filter messages for specific channels like Zaken or Documenten.
+- **[Data Models](./nrc-db-subscriptions.md)**: Understand the underlying database structure for subscriptions if you need deep insight into how channels and filters are stored.
+- **[Retries & Reliability](./nrc-retry-architecture.md)**: Information on how the system ensures delivery, including retry policies (Polly, Hangfire) and circuit breakers.
 
 ## Key Concepts
 
