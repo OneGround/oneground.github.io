@@ -4,12 +4,16 @@ description: "Step-by-step guide and Postman example for uploading documents in 
 keywords: ["Document Upload", "DRC", "ZGW", "OneGround", "File Parts", "Bestandsdelen", "Postman", "API"]
 ---
 
-Attached is an example [Postman project](./examplepm.json) with a sequence for document upload in parts (bestandsdelen).
+<div class="text--center" style={{margin: '2rem 0'}}>
+  <a href="/files/examplepm.json" class="button button--primary button--lg" download>
+    Download Postman Project
+  </a>
+</div>
 
-Please pay attention to the following:
+Please pay attention to the following points when using the example project:
 
-- the JWT should be generated using a Client ID and secret
-- the field bronorganisatie in the body of step 1 should contain the rsin of the organisation that owns the DRC (thus, the rsin of the customer)
-- the field "inhoud" in the body of step 1 should be null
-- the field "bestandsomvang" in the body of step 1 should match the number if bytes in your sample file in step 2
-- the response to step 1 contains a lock, and the url to the bestandsdelen
+- The JWT should be generated using a Client ID and secret. In OneGround, the token is best obtained [via IDP](../general/authentication.md), but it can also be self-generated.
+- The `bronorganisatie` field in the body of step 1 must contain the RSIN of the organization that owns the DRC (i.e., the customer's RSIN).
+- The `inhoud` field in the body of step 1 should be `null`.
+- The `bestandsomvang` field in the body of step 1 must match the size in bytes of your sample file used in step 2.
+- The response to step 1 contains a `lock` and the URL to the `bestandsdelen` endpoint.
