@@ -51,6 +51,7 @@ Filters allow your application to limit the notifications it receives to only th
 | `catalogus`                   | The URL of the catalog to which the case type belongs.                                                                            | https://ztc.zgw.nl/api/v1/catalogussen/fe0ff0r5-fdd1-5011-1177-d15ac1d1f1ed456                           |
 | `domein`                      | The domain of the catalog in field domein of catalogus                                                                            | VTH                                                                                                      |
 | `is_eindzaakstatus`           | Indicates whether the case is in its final status in field isEindstatus of statustype.                                            | True, False                                                                                              |
+| `kenmerk_bron`                | This filter matches the `kenmerk.bron` field. It allows filtering for cases with a specific source, such as 'DSO'.                | DSO                                                                                                      |
 
 ### Filters for the Besluiten channel
 
