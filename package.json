@@ -30,7 +30,7 @@
         "@docusaurus/module-type-aliases": "3.9.2",
         "@docusaurus/tsconfig": "3.9.2",
         "@docusaurus/types": "3.9.2",
-        "baseline-browser-mapping": "^2.9.19",
+        "baseline-browser-mapping": "^2.10.8",
         "prettier": "^3.8.1",
         "typescript": "~5.9.3"
     },
@@ -47,9 +47,10 @@
         ]
     },
     "engines": {
-        "node": ">=18.0"
+        "node": ">=20.0"
     },
     "overrides": {
-        "feed@<=5.0.0": "5.0.0"
+        "feed@<=5.0.0": "5.0.0",
+        "serialize-javascript": "^7.0.3"
     }
 }
