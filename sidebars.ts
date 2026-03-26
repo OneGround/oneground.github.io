@@ -110,13 +110,6 @@ const sidebars: SidebarsConfig = {
                 }
             ]
         }
-    ],
-    changelog: [
-        {
-            type: "doc",
-            id: "changelog",
-            label: "Changelog"
-        }
     ]
 };
 
