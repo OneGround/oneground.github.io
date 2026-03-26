@@ -98,6 +98,17 @@ const sidebars: SidebarsConfig = {
                     label: "Document Upload Guide"
                 }
             ]
+        },
+        {
+            type: "category",
+            label: "Cases",
+            items: [
+                {
+                    type: "doc",
+                    id: "cases/use-of-bsn",
+                    label: "Use of BSN"
+                }
+            ]
         }
     ]
 };
