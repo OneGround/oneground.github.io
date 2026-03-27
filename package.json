@@ -30,7 +30,7 @@
         "@docusaurus/module-type-aliases": "3.9.2",
         "@docusaurus/tsconfig": "3.9.2",
         "@docusaurus/types": "3.9.2",
-        "baseline-browser-mapping": "^2.10.8",
+        "baseline-browser-mapping": "^2.10.11",
         "prettier": "^3.8.1",
         "typescript": "~5.9.3"
     },
