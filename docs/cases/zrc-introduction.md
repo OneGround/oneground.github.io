@@ -45,6 +45,6 @@ We have guides to help you integrate with the Cases system:
 The OneGround Cases system is implemented according to the standards defined by VNG Realisatie. The official standards provide the complete specification:
 
 - **[VNG Zaken Standard](https://vng-realisatie.github.io/gemma-zaken/standaard/zaken/)**
-   The core specification for the Cases API (Zaken services). It defines the resources, behavior, and architecture for registering and managing cases.
+  The core specification for the Cases API (Zaken services). It defines the resources, behavior, and architecture for registering and managing cases.
 
 For further technical details, please refer to the specific pages in this section.
