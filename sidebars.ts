@@ -109,7 +109,7 @@ const sidebars: SidebarsConfig = {
             items: [
                 {
                     type: "doc",
-                    id: "cases/zrc-use-of-bsn",
+                    id: "cases/use-of-bsn",
                     label: "Use of BSN"
                 }
             ]
