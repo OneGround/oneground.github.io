@@ -30,7 +30,7 @@ To work with the Cases API, your application typically performs these steps:
 
 We have guides to help you integrate with the Cases system:
 
-- **[Use of BSN](./zrc-use-of-bsn)**: Best practices for securely retrieving cases associated with a BSN (Dutch Social Security Number).
+- **[Use of BSN](./use-of-bsn)**: Best practices for securely retrieving cases associated with a BSN (Dutch Social Security Number).
 
 ## Key Concepts
 
