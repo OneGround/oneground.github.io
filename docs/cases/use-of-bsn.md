@@ -14,7 +14,7 @@ Retrieving cases using a BSN (Dutch Social Security Number) can be done in two w
 The current, widely-used method for fetching cases by BSN is a `GET` request where the BSN is passed as a URL parameter:
 
 ```plain
-https://zaken.preprod-rx-services.nl/api/v1/zaken?rol__betrokkeneIdentificatie__natuurlijkPersoon__inpBsn=123443210
+https://zaken.oneground.local/api/v1/zaken?rol__betrokkeneIdentificatie__natuurlijkPersoon__inpBsn=123443210
 ```
 
 **This is a security and privacy risk.**
@@ -37,7 +37,7 @@ Here is an example of how to use the `/_zoek` endpoint. Many other attributes ar
 
 ```json
 POST /api/v1/zaken/_zoek
-Host: zaken.preprod-rx-services.nl
+Host: zaken.oneground.local
 Content-Type: application/json
 
 {

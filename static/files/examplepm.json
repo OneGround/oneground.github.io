@@ -22,7 +22,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "https://documenten.preprod-rx-services.nl/api/v1/enkelvoudiginformatieobjecten/a1e69580-3a10-4ff3-93da-251dae96b5ce",
+                    "raw": "https://documenten.oneground.local/api/v1/enkelvoudiginformatieobjecten/a1e69580-3a10-4ff3-93da-251dae96b5ce",
                     "protocol": "https",
                     "host": ["documenten", "preprod-rx-services", "nl"],
                     "path": ["api", "v1", "enkelvoudiginformatieobjecten", "a1e69580-3a10-4ff3-93da-251dae96b5ce"]
@@ -51,7 +51,7 @@
                 "header": [],
                 "body": {
                     "mode": "raw",
-                    "raw": "{\r\n    \"identificatie\": \"\",\r\n    \"bronorganisatie\": \"361249160\",\r\n    \"creatiedatum\": \"2024-08-27\",\r\n    \"titel\": \"test johannes\",\r\n    \"vertrouwelijkheidaanduiding\": \"openbaar\",\r\n    \"auteur\": \"Roxit\",\r\n    \"status\": \"\",\r\n    \"formaat\": \"application/pdf\",\r\n    \"taal\": \"nld\",\r\n    \"bestandsnaam\": \"iets.pdf\",\r\n    \"inhoud\":null,\r\n    \"bestandsomvang\": 29607,\r\n    \"link\": \"\",\r\n    \"beschrijving\": \"\",\r\n    \"ontvangstdatum\": null,\r\n    \"verzenddatum\": null,\r\n    \"indicatieGebruiksrecht\": false,\r\n    \"ondertekening\": null,\r\n    \"integriteit\": null,\r\n    \"informatieobjecttype\": \"https://catalogi.preprod-rx-services.nl/api/v1/informatieobjecttypen/ba39dada-a497-4066-92d0-8aac46ce3d64\"\r\n}",
+                    "raw": "{\r\n    \"identificatie\": \"\",\r\n    \"bronorganisatie\": \"361249160\",\r\n    \"creatiedatum\": \"2024-08-27\",\r\n    \"titel\": \"test johannes\",\r\n    \"vertrouwelijkheidaanduiding\": \"openbaar\",\r\n    \"auteur\": \"Roxit\",\r\n    \"status\": \"\",\r\n    \"formaat\": \"application/pdf\",\r\n    \"taal\": \"nld\",\r\n    \"bestandsnaam\": \"iets.pdf\",\r\n    \"inhoud\":null,\r\n    \"bestandsomvang\": 29607,\r\n    \"link\": \"\",\r\n    \"beschrijving\": \"\",\r\n    \"ontvangstdatum\": null,\r\n    \"verzenddatum\": null,\r\n    \"indicatieGebruiksrecht\": false,\r\n    \"ondertekening\": null,\r\n    \"integriteit\": null,\r\n    \"informatieobjecttype\": \"https://catalogi.oneground.local/api/v1/informatieobjecttypen/ba39dada-a497-4066-92d0-8aac46ce3d64\"\r\n}",
                     "options": {
                         "raw": {
                             "language": "json"
@@ -59,7 +59,7 @@
                     }
                 },
                 "url": {
-                    "raw": "https://documenten.preprod-rx-services.nl/api/v1/enkelvoudiginformatieobjecten",
+                    "raw": "https://documenten.oneground.local/api/v1/enkelvoudiginformatieobjecten",
                     "protocol": "https",
                     "host": ["documenten", "preprod-rx-services", "nl"],
                     "path": ["api", "v1", "enkelvoudiginformatieobjecten"]
@@ -175,7 +175,7 @@
                 ],
                 "body": {
                     "mode": "raw",
-                    "raw": "{\r\n    \"informatieobject\": \"{{document_url}}\",\r\n    \"zaak\": \"https://zaken.preprod-rx-services.nl/api/v1/zaken/7a89ea95-a167-415f-80d8-6b9bb0c61da7\",\r\n    \"titel\": \"\",\r\n    \"beschrijving\": \"\"\r\n}",
+                    "raw": "{\r\n    \"informatieobject\": \"{{document_url}}\",\r\n    \"zaak\": \"https://zaken.oneground.local/api/v1/zaken/7a89ea95-a167-415f-80d8-6b9bb0c61da7\",\r\n    \"titel\": \"\",\r\n    \"beschrijving\": \"\"\r\n}",
                     "options": {
                         "raw": {
                             "language": "json"
@@ -183,7 +183,7 @@
                     }
                 },
                 "url": {
-                    "raw": "https://zaken.preprod-rx-services.nl/api/v1/zaakinformatieobjecten",
+                    "raw": "https://zaken.oneground.local/api/v1/zaakinformatieobjecten",
                     "protocol": "https",
                     "host": ["zaken", "preprod-rx-services", "nl"],
                     "path": ["api", "v1", "zaakinformatieobjecten"]
