@@ -230,7 +230,8 @@ const config: Config = {
                 feedOptions: {
                     type: "all",
                     title: "OneGround ZGW API Changelog",
-                    description: "Latest releases and updates for OneGround ZGW API platform"
+                    description: "Latest releases and updates for OneGround ZGW API platform",
+                    xslt: true
                 }
             } satisfies PluginContentBlog.Options
         ],

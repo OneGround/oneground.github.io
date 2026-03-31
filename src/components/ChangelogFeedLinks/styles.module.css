@@ -1,0 +1,35 @@
+.feedContainer {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.feedLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-radius: 2rem;
+    padding: 0.3rem 0.85rem;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--feed-accent);
+    background: color-mix(in srgb, var(--feed-accent) 10%, transparent);
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+}
+
+.feedLink:hover {
+    background: color-mix(in srgb, var(--feed-accent) 20%, transparent);
+    text-decoration: none;
+    color: var(--feed-accent);
+}
+
+[data-theme="dark"] .feedLink {
+    background: color-mix(in srgb, var(--feed-accent) 15%, transparent);
+}
+
+[data-theme="dark"] .feedLink:hover {
+    background: color-mix(in srgb, var(--feed-accent) 25%, transparent);
+}

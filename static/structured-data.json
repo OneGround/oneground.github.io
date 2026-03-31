@@ -7,10 +7,16 @@
             "name": "OneGround",
             "alternateName": "Roxit OneGround",
             "url": "https://dev.oneground.nl",
-            "sameAs": ["https://github.com/OneGround", "https://oneground.nl", "https://portaal.oneground.nl"],
+            "sameAs": [
+                "https://github.com/OneGround",
+                "https://oneground.nl",
+                "https://portaal.oneground.nl",
+                "https://www.linkedin.com/showcase/one-ground/",
+                "https://www.youtube.com/@vismaroxit"
+            ],
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://dev.oneground.nl/img/logo.png",
+                "url": "https://dev.oneground.nl/img/logo.svg",
                 "width": 200,
                 "height": 60
             },
@@ -47,15 +53,7 @@
             "publisher": {
                 "@id": "https://dev.oneground.nl/#organization"
             },
-            "inLanguage": "en",
-            "potentialAction": {
-                "@type": "SearchAction",
-                "target": {
-                    "@type": "EntryPoint",
-                    "urlTemplate": "https://dev.oneground.nl/search?q={search_term_string}"
-                },
-                "query-input": "required name=search_term_string"
-            }
+            "inLanguage": "en"
         },
         {
             "@type": "SoftwareApplication",
@@ -128,7 +126,7 @@
             "description": "OneGround is a comprehensive implementation of Dutch ZGW APIs for case management (Zaakgericht Werken). Learn about ZRC, DRC, ZTC, BRC, NRC, AC components, features, and how to get started.",
             "url": "https://dev.oneground.nl/docs/about-oneground",
             "datePublished": "2024-01-01",
-            "dateModified": "2025-06-09",
+            "dateModified": "2026-01-19",
             "author": {
                 "@id": "https://dev.oneground.nl/#organization"
             },
@@ -152,6 +150,13 @@
                 "NRC",
                 "AC",
                 "RL",
+                "OAuth2",
+                "JWT",
+                "Docker",
+                ".NET",
+                "webhooks",
+                "digital signing",
+                "NEN-ISO 16175",
                 "VNG standards",
                 "government APIs"
             ]
@@ -168,6 +173,60 @@
             "inLanguage": "en"
         },
         {
+            "@type": "BlogPosting",
+            "@id": "https://dev.oneground.nl/blog/best-practices-for-jwt-usage-in-apis#blogposting",
+            "headline": "Best Practices for JWT Usage in APIs - OneGround Security Guide",
+            "description": "Comprehensive guide to implementing JWT authentication securely in ZGW APIs and OneGround. Learn about token security, validation, best practices, and common pitfalls to avoid.",
+            "url": "https://dev.oneground.nl/blog/best-practices-for-jwt-usage-in-apis",
+            "datePublished": "2024-12-03",
+            "author": {
+                "@type": "Person",
+                "name": "Giedrius Grabauskas"
+            },
+            "isPartOf": {
+                "@id": "https://dev.oneground.nl/blog#blog"
+            },
+            "publisher": {
+                "@id": "https://dev.oneground.nl/#organization"
+            }
+        },
+        {
+            "@type": "BlogPosting",
+            "@id": "https://dev.oneground.nl/blog/integrating-signing-software-with-zgw#blogposting",
+            "headline": "Standardized Document Signing Integration for ZGW APIs - Complete Guide",
+            "description": "Learn how to integrate digital document signing software with ZGW APIs. Complete implementation guide with API patterns, authentication methods, and standardized trigger messages for OneGround and compliant ZGW systems.",
+            "url": "https://dev.oneground.nl/blog/integrating-signing-software-with-zgw",
+            "datePublished": "2025-03-27",
+            "author": {
+                "@type": "Person",
+                "name": "Michiel Nijdam"
+            },
+            "isPartOf": {
+                "@id": "https://dev.oneground.nl/blog#blog"
+            },
+            "publisher": {
+                "@id": "https://dev.oneground.nl/#organization"
+            }
+        },
+        {
+            "@type": "BlogPosting",
+            "@id": "https://dev.oneground.nl/blog/oauth2-token-endpoint#blogposting",
+            "headline": "Why OneGround Uses an OAuth2 Token Endpoint",
+            "description": "Learn why customer-generated JWTs are risky and how OAuth2 Token Endpoints provide better security, control, and simplicity for API authentication.",
+            "url": "https://dev.oneground.nl/blog/oauth2-token-endpoint",
+            "datePublished": "2025-11-14",
+            "author": {
+                "@type": "Person",
+                "name": "Giedrius Grabauskas"
+            },
+            "isPartOf": {
+                "@id": "https://dev.oneground.nl/blog#blog"
+            },
+            "publisher": {
+                "@id": "https://dev.oneground.nl/#organization"
+            }
+        },
+        {
             "@type": "FAQPage",
             "@id": "https://dev.oneground.nl/#faq",
             "mainEntity": [
@@ -176,7 +235,7 @@
                     "name": "What is OneGround?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "OneGround is the implementation by Roxit of case oriented APIs and registrations according to the VNG specifications. It contains ZTC, ZRC, DRC, BRC, NC, AC and reference lists for Dutch government case management."
+                        "text": "OneGround is the implementation by Roxit of case oriented APIs and registrations according to the VNG specifications. It contains ZTC, ZRC, DRC, BRC, NRC, AC and reference lists for Dutch government case management."
                     }
                 },
                 {
@@ -192,7 +251,7 @@
                     "name": "What ZGW components does OneGround include?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "OneGround includes all ZGW API components: ZRC (Case Registration), DRC (Document Registration), ZTC (Case Type Catalog), BRC (Decision Registration), NRC (Notification Center), and AC (Authorization Component)."
+                        "text": "OneGround includes all ZGW API components: ZRC (Case Registration), DRC (Document Registration), ZTC (Case Type Catalog), BRC (Decision Registration), NRC (Notification Center), AC (Authorization Component), and RL (Reference Lists)."
                     }
                 },
                 {
@@ -244,7 +303,17 @@
             "creator": {
                 "@id": "https://dev.oneground.nl/#organization"
             },
-            "keywords": ["ZGW API", "Documentation", "Dutch Government", "Case Management", "API Reference"],
+            "keywords": [
+                "ZGW API",
+                "Documentation",
+                "Dutch Government",
+                "Case Management",
+                "API Reference",
+                "OAuth2",
+                "JWT",
+                "webhooks",
+                "integration guides"
+            ],
             "license": "https://github.com/OneGround/oneground.github.io/blob/main/LICENSE",
             "distribution": {
                 "@type": "DataDownload",
