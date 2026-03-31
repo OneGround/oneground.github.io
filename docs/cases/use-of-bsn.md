@@ -1,7 +1,11 @@
 ---
-id: use-of-bsn
-title: Retrieving cases for a particular BSN
+title: "Retrieving Cases for a Particular BSN"
+description: "Best practices for securely retrieving cases by BSN, avoiding URL-based exposure of sensitive personal data."
+keywords: [BSN, cases, ZRC, privacy, security, POST, zoek, GDPR, AVG, OneGround]
+slug: /cases/use-of-bsn
 ---
+
+# Retrieving Cases for a Particular BSN
 
 Retrieving cases using a BSN (Dutch Social Security Number) can be done in two ways. While our case registration software supports both methods, many client applications are using the older, insecure method. This article explains the problem and the recommended solution.
 
@@ -9,8 +13,8 @@ Retrieving cases using a BSN (Dutch Social Security Number) can be done in two w
 
 The current, widely-used method for fetching cases by BSN is a `GET` request where the BSN is passed as a URL parameter:
 
-```h
-ttps://zaken.preprod-rx-services.nl/api/v1/zaken?rol__betrokkeneIdentificatie__natuurlijkPersoon__inpBsn=123443210
+```plain
+https://zaken.preprod-rx-services.nl/api/v1/zaken?rol__betrokkeneIdentificatie__natuurlijkPersoon__inpBsn=123443210
 ```
 
 **This is a security and privacy risk.**

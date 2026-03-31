@@ -101,7 +101,11 @@ const sidebars: SidebarsConfig = {
         },
         {
             type: "category",
-            label: "Cases",
+            label: "Cases (ZRC)",
+            link: {
+                type: "doc",
+                id: "cases/zrc-introduction"
+            },
             items: [
                 {
                     type: "doc",
