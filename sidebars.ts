@@ -113,6 +113,11 @@ const sidebars: SidebarsConfig = {
                     label: "Use of BSN"
                 }
             ]
+        },
+        {
+            type: "doc",
+            id: "audittrail/audittrail",
+            label: "AuditTrail"
         }
     ]
 };
