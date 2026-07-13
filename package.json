@@ -23,15 +23,15 @@
         "@mdx-js/react": "^3.1.1",
         "clsx": "^2.1.1",
         "prism-react-renderer": "^2.4.1",
-        "react": "^19.2.6",
-        "react-dom": "^19.2.6"
+        "react": "^19.2.7",
+        "react-dom": "^19.2.7"
     },
     "devDependencies": {
         "@docusaurus/module-type-aliases": "3.10.1",
         "@docusaurus/tsconfig": "3.10.1",
         "@docusaurus/types": "3.10.1",
-        "baseline-browser-mapping": "^2.10.31",
-        "prettier": "^3.8.3",
+        "baseline-browser-mapping": "^2.10.37",
+        "prettier": "^3.8.4",
         "typescript": "~6.0.3"
     },
     "browserslist": {
