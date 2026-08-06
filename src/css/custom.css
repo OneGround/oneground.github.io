@@ -119,3 +119,23 @@
 .footer__link-item[href*="youtube.com"]:after {
     display: none !important;
 }
+
+/**
+ * Make wide changelog/doc tables fit the viewport instead of showing a
+ * horizontal scrollbar. Infima sets table { display: block; overflow: auto }
+ * so it can scroll instead of overflowing the page; override that back to a
+ * real table layout, fixed to the container width, and let long cell
+ * content wrap instead.
+ */
+.markdown table {
+    display: table;
+    overflow: visible;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.markdown table th,
+.markdown table td {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
