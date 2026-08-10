@@ -8,9 +8,10 @@ keywords: ["API Versions", "ZGW", "AC", "NRC", "DRC", "ZRC", "BRC", "ZTC", "Supp
 
 ## AC
 
-| **Version** | **Support** | **Release** | **End of life** |
-| ----------- | ----------- | ----------- | --------------- |
-| 1.0.0       | 🟢 Active   | 2023-01-01  |                 |
+| **Version** | **Support**    | **Release** | **End of life** |
+| ----------- | -------------- | ----------- | --------------- |
+| 1.0.0       | 🟠 Maintenance | 2023-01-01  |                 |
+| 1.1.0       | 🟢 Active      | 2026-08-05  |                 |
 
 ## NRC
 
