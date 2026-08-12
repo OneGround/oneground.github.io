@@ -41,6 +41,6 @@ To effectively use the ZTC, you typically interact with a management interface o
 The OneGround Catalogs system is implemented according to the standards defined by VNG Realisatie. The official standards provide the complete specification:
 
 - **[VNG Catalogussen Standard](https://vng-realisatie.github.io/gemma-zaken/standaard/catalogi/)**  
-   The core specification for the Catalogs API (Catalogi services). It defines the resources and relations for case types, document types, and more.
+  The core specification for the Catalogs API (Catalogi services). It defines the resources and relations for case types, document types, and more.
 
 For further technical details, please refer to the specific documentation pages in this section.

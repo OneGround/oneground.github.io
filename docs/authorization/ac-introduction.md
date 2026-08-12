@@ -47,6 +47,6 @@ When using the OneGround configuration tool, keep the following in mind:
 The OneGround Authorizations system is implemented according to the standards defined by VNG Realisatie. The official standards provide the complete specification:
 
 - **[VNG Autorisaties Standard](https://vng-realisatie.github.io/gemma-zaken/standaard/autorisaties/)**  
-   The core specification for the Authorizations API (Autorisaties services). It defines how applications and authorizations should be structured and queried.
+  The core specification for the Authorizations API (Autorisaties services). It defines how applications and authorizations should be structured and queried.
 
 For further technical details on how to configure authorizations in OneGround, please refer to the specific configuration guides.

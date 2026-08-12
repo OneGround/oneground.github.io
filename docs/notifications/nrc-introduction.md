@@ -44,9 +44,9 @@ We have detailed guides to help you integrate with the Notifications system:
 The OneGround Notifications system is implemented according to the standards defined by VNG Realisatie. While this documentation covers the specific implementation and usage within OneGround, the official standards provide the complete specification:
 
 - **[VNG Notificaties Standard](https://vng-realisatie.github.io/gemma-zaken/standaard/notificaties/)**  
-   The core specification for the Notifications API (Notificaties services). It defines the resources, behavior, and architecture of the notification system.
+  The core specification for the Notifications API (Notificaties services). It defines the resources, behavior, and architecture of the notification system.
 
 - **[VNG Notificaties Consumer Guide](https://vng-realisatie.github.io/gemma-zaken/standaard/notificaties-consumer/)**  
-   A guide specifically for "consumers" — applications that subscribe to and receive notifications. This resource provides sequence diagrams and rules for handling notifications correctly.
+  A guide specifically for "consumers" — applications that subscribe to and receive notifications. This resource provides sequence diagrams and rules for handling notifications correctly.
 
 For further technical details, please refer to the specific pages in this section.
