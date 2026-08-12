@@ -45,6 +45,6 @@ We have guides to help you integrate with the Documents system:
 The OneGround Documents system is implemented according to the standards defined by VNG Realisatie. While this documentation covers the specific implementation and usage within OneGround, the official standards provide the complete specification:
 
 - **[VNG Documenten API Standard](https://vng-realisatie.github.io/gemma-zaken/standaard/documenten/)**  
-   The core specification for the Documents API. It defines the resources, behavior, and architecture for storing and managing information objects.
+  The core specification for the Documents API. It defines the resources, behavior, and architecture for storing and managing information objects.
 
 For further technical details, please refer to the specific pages in this section.
