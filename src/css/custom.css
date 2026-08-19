@@ -124,18 +124,30 @@
  * Make wide changelog/doc tables fit the viewport instead of showing a
  * horizontal scrollbar. Infima sets table { display: block; overflow: auto }
  * so it can scroll instead of overflowing the page; override that back to a
- * real table layout, fixed to the container width, and let long cell
- * content wrap instead.
+ * real table layout, constrained to the container width. table-layout: auto
+ * (rather than fixed) lets columns size to their content -- wider text gets
+ * more space -- while wrapping keeps the total width from ever exceeding
+ * the container, so no horizontal scrollbar appears.
  */
 .markdown table {
     display: table;
     overflow: visible;
-    table-layout: fixed;
+    table-layout: auto;
     width: 100%;
+    max-width: 100%;
 }
 
 .markdown table th,
 .markdown table td {
     overflow-wrap: break-word;
     word-wrap: break-word;
+    min-width: 0;
+}
+
+@media (max-width: 768px) {
+    .markdown table th,
+    .markdown table td {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
 }
