@@ -9,12 +9,13 @@ slug: /notifications/notification-retry-architecture
 
 When a ZGW entity is created, modified, or deleted, a notification is sent. Client applications can subscribe to these notifications. This requires a webhook receiver on the client side to which the notifications can be delivered. The URL (and authentication) of this webhook receiver is stored in the client's subscription in our Notifications database.
 
-There are four key components to the Notifications system:
+There are five key components to the Notifications system:
 
 1. Polly retries
 2. Hangfire retries and priority queue
 3. Circuit breaker
-4. HTTP status codes that lead to retries
+4. Subscription blocking
+5. HTTP status codes that lead to retries
 
 ## Polly retries
 
@@ -104,6 +105,10 @@ The possible settings under CircuitBreaker are:
 - FailureThreshold (number of times you can fail before the BLOCKADE takes effect)
 - BreakDuration (time of the BLOCKADE)
 - CacheExpirationMinutes (time that MONITORING and BLOCKS are lifted unless called)
+
+## Subscription blocking
+
+Subscription blocking is a safeguard on top of the Hangfire retry mechanism described above. If every notification for a subscription keeps failing and none can be delivered for a full week, the subscription is automatically blocked. Once blocked, no further notifications (new or retried) are sent to that subscription's webhook receiver, which prevents the system from continuing to schedule and process retries for a client that is clearly no longer reachable. Unlike the circuit breaker, a block is not lifted automatically after a timeout — it requires a system administrator to manually unblock the subscription in ZCA under Notificaties before delivery resumes.
 
 ## HTTP status codes triggering retries
 
