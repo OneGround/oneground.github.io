@@ -23,9 +23,10 @@ keywords: ["API Versions", "ZGW", "AC", "NRC", "DRC", "ZRC", "BRC", "ZTC", "Supp
 
 | **Version** | **Support**    | **Release** | **End of life** |
 | ----------- | -------------- | ----------- | --------------- |
-| 1.0.1       | 🟠 Maintenance | 2023-01-01  |                 |
+| 1.0.1       | 🔴 End of Life | 2023-01-01  | 2026-09-29      |
 | 1.1.0       | 🟠 Maintenance | 2023-01-01  |                 |
-| 1.5.0       | 🟢 Active      | 2024-04-18  |                 |
+| 1.5.0       | 🟠 Maintenance | 2024-04-18  |                 |
+| 1.7.0       | 🟢 Active      | 2026-09-18  |                 |
 
 ## ZRC
 
@@ -62,6 +63,6 @@ keywords: ["API Versions", "ZGW", "AC", "NRC", "DRC", "ZRC", "BRC", "ZTC", "Supp
 
 ⚫ **Future** - the version scheduled for deployment, which may be partially deployed in the current version.
 
-<em>Release</em> is the date at which OneGround started to support the vesrion in production. Subsequent changes (under the same Api version) can be found in the changelog
+<em>Release</em> is the date at which OneGround started to support the version in production. Subsequent changes (under the same Api version) can be found in the changelog
 
 <em>End of Life</em> is the (expected) termination of support
